@@ -130,4 +130,7 @@
       <Name>Cryfolio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\images\" />
+  </ItemGroup>
 </Project>

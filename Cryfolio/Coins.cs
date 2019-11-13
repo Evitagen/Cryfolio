@@ -9,6 +9,7 @@ namespace CoinMarketPortfolio
         public double volume { get; set; }
         public double circulating { get; set; }
         public double marketcap { get; set; }
+        public string imagelocation { get; set; }
 
     }
 }
