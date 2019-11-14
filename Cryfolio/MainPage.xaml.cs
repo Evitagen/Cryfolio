@@ -26,6 +26,8 @@ namespace Cryfolio
 
         private async Task GetCoinsAsync()
         {
+
+
             HttpClient client = new HttpClient();
 
             var response = await client.GetStringAsync("https://cryfolio.azurewebsites.net/api/coins");
@@ -37,46 +39,44 @@ namespace Cryfolio
 
             foreach (var coin in coins)
             {
-                if (coin.price < 1)
-                {
-                    // 8 dec places
-                    coin.price = (double)Math.Round(Convert.ToDecimal(coin.price), 6);
+                if (coin.price < 1) {
+                    coin.price = (double)Math.Round(Convert.ToDecimal(coin.price), 6);   // 8 dec places
                 }
 
-                if (coin.price > 1 && coin.price < 100)
-                {
-                    // 4 dec places
-                    coin.price = (double)Math.Round(Convert.ToDecimal(coin.price), 4);
+                if (coin.price > 1 && coin.price < 100) {
+                    coin.price = (double)Math.Round(Convert.ToDecimal(coin.price), 4);   // 4 dec places
                 }
 
-                if (coin.price > 100)
-                {
-                    // 2 decimal
-                   coin.price = (double)Math.Round(Convert.ToDecimal(coin.price), 2);
+                if (coin.price > 100) {
+                   coin.price = (double)Math.Round(Convert.ToDecimal(coin.price), 2);    // 2 decimal
                 }
 
                 strtemp = coin.name.Replace("-", "") ;  // removes the dash as xamarin wont allow
-
                 coin.imagelocation = strtemp + ".png";
+
+                if (coin.PercentChange7day > 0) {
+                    coin.PercentChange7dayColor = "LightGreen";
+                } else {
+                    coin.PercentChange7dayColor = "Red";
+                }
+
+                if (coin.PercentChange24hr > 0)
+                {
+                    coin.PercentChange24hrColor = "LightGreen";
+                } else {
+                    coin.PercentChange24hrColor = "Red";
+                }
+                
+
                 coinsFormated.Add(coin);
-
-                if (File.Exists(coin.imagelocation))
-                {
-                    Console.WriteLine("file exists!!");
-                }
-                else
-                {
-                    Console.WriteLine("NO");
-                }
             }
-
 
 
             CoinsListView.ItemsSource = coinsFormated;
 
             client.Dispose();
 
-            // jlj
+            
         }
     }
 }

@@ -152,4 +152,7 @@
     <None Remove="Assets\images\zcash.png" />
     <None Remove="Assets\images\zilliqa.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CoinList\" />
+  </ItemGroup>
 </Project>
