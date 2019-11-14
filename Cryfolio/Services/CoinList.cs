@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using CoinMarketPortfolio;
+using Models.CoinMarketPortfolio;
 using Newtonsoft.Json;
 
-namespace Cryfolio._repo
+
+namespace Cryfolio.Services
 {
-    public class CoinList : ICoinList
+    public class CoinList 
     {
    
         public async Task<List<Coins>> GetCoinPrices()
         {
             HttpClient client = new HttpClient();
+            var response = await client.GetStringAsync("https://cryfolio.azurewebsites.net/api/coins").ConfigureAwait(false);
+            client.Dispose();
 
-            var response = await client.GetStringAsync("https://cryfolio.azurewebsites.net/api/coins");
-
-            var coins = JsonConvert.DeserializeObject<List<Coins>>(response);
+            var coins = JsonConvert.DeserializeObject<List<Coins>>(response.ToString());
             var coinsFormated = new List<Coins>();
             string strtemp;
 

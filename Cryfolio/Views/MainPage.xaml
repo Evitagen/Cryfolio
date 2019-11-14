@@ -50,9 +50,11 @@
 
 
          <!--<BoxView BackgroundColor="Blue" Grid.Row="2"></BoxView>-->
-         
 
-               <ListView x:Name="CoinsListView" Grid.Row="3" BackgroundColor="Black">
+         <!--ItemsSource="{Binding CoinmarketCap_Coins}"-->
+         <!--x:Name="CoinsListView"-->
+
+               <ListView ItemsSource="{Binding CoinmarketCap_Coins}" Grid.Row="3" BackgroundColor="Black">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

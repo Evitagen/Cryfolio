@@ -153,6 +153,9 @@
     <None Remove="Assets\images\zilliqa.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CoinList\" />
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 </Project>
