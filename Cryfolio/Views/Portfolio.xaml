@@ -1,18 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="Cryfolio.MainPage"
-             BackgroundColor="Black">
-    <!--<StackLayout>
-         Place new controls here 
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>-->
+             x:Class="Cryfolio.Views.Portfolio">
 
-
-    <Grid RowSpacing="0">
+     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
              <RowDefinition Height="Auto"/>
@@ -23,6 +14,7 @@
 
             <BoxView BackgroundColor="Black" Grid.Row="0"></BoxView>
          <!--<BoxView BackgroundColor="Black" Grid.Row="1"></BoxView>-->
+         <Label Text="Portfolio" TextColor="WhiteSmoke"></Label>
 
                                 <Grid Grid.Row="1" BackgroundColor="Black">
                                      <Grid.ColumnDefinitions>
@@ -50,60 +42,7 @@
                                 </Grid>
 
 
-         <!--<BoxView BackgroundColor="Blue" Grid.Row="2"></BoxView>-->
-
-         <!--ItemsSource="{Binding CoinmarketCap_Coins}"-->
-         <!--x:Name="CoinsListView"-->
-
-               <ListView ItemsSource="{Binding CoinmarketCap_Coins}" Grid.Row="3" BackgroundColor="Black">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-
-                               <Grid RowSpacing="0">
-
-                                        <Grid.ColumnDefinitions>
-                                             <ColumnDefinition Width="20"/>
-                                             <ColumnDefinition Width="50"/>
-                                             <ColumnDefinition Width="130"/>
-                                             <ColumnDefinition Width="60"/>
-                                             <ColumnDefinition Width="60"/>
-                                             <ColumnDefinition Width="60"/>
-                                        </Grid.ColumnDefinitions>
-
-                                        <StackLayout Grid.Column="0">
-                                            <Label Text="{Binding CoinMcapRank}" TextColor="WhiteSmoke" TranslationY="8" TranslationX="8"></Label>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Column="1">
-                                            <Image Source="{Binding imagelocation}" Aspect="AspectFit"></Image>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Column="2">
-                                            <Label HorizontalTextAlignment="Start" Text="{Binding name}" TextColor="WhiteSmoke"></Label>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Column="3">
-                                            <Label HorizontalTextAlignment="Start" Text="{Binding price}" TextColor="WhiteSmoke"></Label>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Column="4">
-                                            <Label HorizontalTextAlignment="Start" Text="{Binding PercentChange24hr}" TextColor="{Binding PercentChange24hrColor}"></Label>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Column="5">
-                                            <Label HorizontalTextAlignment="Start" Text="{Binding PercentChange7day}" TextColor="{Binding PercentChange7dayColor}"></Label>
-                                        </StackLayout>
-                               </Grid>
-
-
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
-         
-         <!--<BoxView BackgroundColor="Black" Grid.Row="4"></BoxView>-->
+   
 
                   <Grid Grid.Row="4" BackgroundColor="Black" Padding="0,5,0,0">
                                      <Grid.ColumnDefinitions>
@@ -115,10 +54,10 @@
 
                                   
                                       <StackLayout Grid.Column="0" BackgroundColor="Black">
-                                             <Button BackgroundColor="#303036" Text="Coins" TextColor="WhiteSmoke"></Button>
+                                             <Button BackgroundColor="#303036" Text="Coins" Clicked="MainPage" TextColor="WhiteSmoke"></Button>
                                       </StackLayout>
                                       <StackLayout Grid.Column="1" BackgroundColor="Black">
-                                            <Button BackgroundColor="#303036" Text="Portfolio" Clicked="Portfolio" TextColor="WhiteSmoke"></Button>
+                                            <Button BackgroundColor="#303036" Text="Portfolio" TextColor="WhiteSmoke"></Button>
                                       </StackLayout>
                                       <StackLayout Grid.Column="2" BackgroundColor="Black">
                                             <Button BackgroundColor="#303036" Text="Alerts" Clicked="Alerts" TextColor="WhiteSmoke"></Button>
@@ -130,6 +69,7 @@
 
        
     </Grid>
+
 
 
 </ContentPage>

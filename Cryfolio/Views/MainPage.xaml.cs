@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Cryfolio.ViewModels;
-using Models.CoinMarketPortfolio;
-using Newtonsoft.Json;
+using Cryfolio.Views;
 using Xamarin.Forms;
 
 namespace Cryfolio
@@ -24,6 +16,20 @@ namespace Cryfolio
             this.BindingContext = new MainViewModel();
         }
 
-    }
-}
+        void Portfolio(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new Portfolio());
+        }
 
+        void Alerts(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new Alerts());
+        }
+
+        void Settings(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new Settings());
+        }
+    }
+
+}

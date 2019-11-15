@@ -15,7 +15,7 @@ namespace Cryfolio.ViewModels
         {
             UpdatePrices();
 
-            aTimer = new System.Timers.Timer(30000);  // every 30 seconds 
+            aTimer = new System.Timers.Timer(120000);  // every 120 seconds 2 min 
             Timer();
         }
 

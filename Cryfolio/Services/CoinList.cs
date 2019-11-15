@@ -24,6 +24,11 @@ namespace Cryfolio.Services
 
               foreach (var coin in coins)
               {
+
+                    ///
+                    /// Sorting decimal places to more readable format
+                    ///
+
                     if (coin.price < 1)
                     {
                         coin.price = (double)Math.Round(Convert.ToDecimal(coin.price), 6);   // 8 dec places
@@ -39,8 +44,14 @@ namespace Cryfolio.Services
                         coin.price = (double)Math.Round(Convert.ToDecimal(coin.price), 2);   // 2 decimal
                     }
 
+                    
+                    
                     strtemp = coin.name.Replace("-", "");                                    // removes the dash as xamarin wont allow
                     coin.imagelocation = strtemp + ".png";
+
+                    ///
+                    /// Changing Color of percent changed text to red/green
+                    ///
 
                     if (coin.PercentChange7day > 0)
                     {
@@ -60,7 +71,12 @@ namespace Cryfolio.Services
                         coin.PercentChange24hrColor = "Red";
                     }
 
-                    coinsFormated.Add(coin);
+                    coin.PercentChange7day = Math.Round(Convert.ToDecimal(coin.PercentChange7day), 2);
+                    coin.PercentChange24hr = Math.Round(Convert.ToDecimal(coin.PercentChange24hr), 2);
+                    coin.PercentChange1hr = Math.Round(Convert.ToDecimal(coin.PercentChange1hr), 2);
+
+
+                coinsFormated.Add(coin);
               }
 
             return coinsFormated;
