@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Timers;
 using Cryfolio.Services;
 using Models.CoinMarketPortfolio;
 
@@ -7,12 +8,24 @@ namespace Cryfolio.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-     
+
+        private static System.Timers.Timer aTimer;
+
         public MainViewModel()
+        {
+            UpdatePrices();
+
+            aTimer = new System.Timers.Timer(30000);  // every 30 seconds 
+            Timer();
+        }
+
+        public void UpdatePrices()
         {
             var services = new CoinList();
             CoinmarketCap_Coins = services.GetCoinPrices().Result;
         }
+
+
         private List<Coins> coinmarketCap_Coins;
 
         public List<Coins> CoinmarketCap_Coins
@@ -21,6 +34,19 @@ namespace Cryfolio.ViewModels
             set { SetProperty(ref coinmarketCap_Coins, value); }
         }
 
-       
+
+        private void Timer()
+        {
+            aTimer.Elapsed += OnTimedEvent;
+            aTimer.AutoReset = true;
+            aTimer.Enabled = true;
+        }
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            UpdatePrices();
+        }
+
+
     }
 }
