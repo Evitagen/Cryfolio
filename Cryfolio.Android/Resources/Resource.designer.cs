@@ -5457,7 +5457,6 @@ namespace Cryfolio.Droid
 		public partial class Drawable
 		{
 			
-			
 			// aapt resource value: 0x7F070007
 			public const int abbccoin = 2131165191;
 			

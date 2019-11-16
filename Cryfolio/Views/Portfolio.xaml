@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<!--<?xml version="1.0" encoding="UTF-8"?>-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cryfolio.Views.Portfolio">
@@ -13,35 +13,36 @@
          </Grid.RowDefinitions>
 
             <BoxView BackgroundColor="Black" Grid.Row="0"></BoxView>
-         <!--<BoxView BackgroundColor="Black" Grid.Row="1"></BoxView>-->
-         <Label Text="Portfolio" TextColor="WhiteSmoke"></Label>
+  
+         <Label Text="Default Portfolio" HorizontalTextAlignment="Center" TextColor="WhiteSmoke"></Label>
 
                                 <Grid Grid.Row="1" BackgroundColor="Black">
-                                     <Grid.ColumnDefinitions>
-                                             <ColumnDefinition Width="20"/>
-                                             <ColumnDefinition Width="50"/>
-                                             <ColumnDefinition Width="130"/>
-                                             <ColumnDefinition Width="60"/>
-                                             <ColumnDefinition Width="60"/>
-                                             <ColumnDefinition Width="60"/>
+                                      <Grid.ColumnDefinitions>
+                                             <ColumnDefinition Width="10*"/>
+                                             <ColumnDefinition Width="40*"/>
+                                             <ColumnDefinition Width="40*"/>
+                                           <ColumnDefinition Width="10*"/>
                                       </Grid.ColumnDefinitions>
-
-                                  
+                            
+                                      <StackLayout Grid.Column="1">
+                                             <Button BackgroundColor="DodgerBlue" Text="Add Portfolio"  TextColor="Black"></Button>
+                                      </StackLayout>
                                       <StackLayout Grid.Column="2">
-                                             <Label Text="Coin" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="3">
-                                            <Label Text="Price" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="4">
-                                            <Label Text="% 24hr" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="5">
-                                            <Label Text="% 7day" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
+                                            <Button BackgroundColor="DodgerBlue" Text="Add Coin" TextColor="Black"></Button>
+                                      </StackLayout>                        
                                 </Grid>
 
+                <ListView ItemsSource="{Binding CoinmarketCap_Coins}" Grid.Row="3" BackgroundColor="Black">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
 
+                         
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
    
 
                   <Grid Grid.Row="4" BackgroundColor="Black" Padding="0,5,0,0">
