@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -13,6 +14,8 @@ namespace Cryfolio.ViewModels
                                 [CallerMemberName] string propertyName = null)
         {
             if (Object.Equals(storage, value))
+                return false;
+            if (EqualityComparer<T>.Default.Equals(storage, value))
                 return false;
 
             storage = value;

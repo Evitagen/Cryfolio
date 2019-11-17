@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Cryfolio.ViewModels;
 using Xamarin.Forms;
 
 namespace Cryfolio.Views
@@ -9,6 +9,7 @@ namespace Cryfolio.Views
         public Portfolio()
         {
             InitializeComponent();
+            this.BindingContext = new PortfolioViewModel();
         }
 
         void MainPage(object sender, EventArgs e)
