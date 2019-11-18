@@ -18,27 +18,27 @@
 
                                 <Grid Grid.Row="1" BackgroundColor="Black">
                                       <Grid.ColumnDefinitions>
-                                             <ColumnDefinition Width="10*"/>
+                                             <ColumnDefinition Width="30*"/>
                                              <ColumnDefinition Width="40*"/>
-                                             <ColumnDefinition Width="40*"/>
-                                           <ColumnDefinition Width="10*"/>
+                                             <!--<ColumnDefinition Width="40*"/>-->
+                                           <ColumnDefinition Width="30*"/>
                                       </Grid.ColumnDefinitions>
                             
                                       <StackLayout Grid.Column="1">
-                                             <Button BackgroundColor="DodgerBlue" Text="Add Portfolio"  TextColor="Black"></Button>
+                                             <Button BackgroundColor="DodgerBlue" Text="Add Portfolio" TextColor="Black"></Button>
                                       </StackLayout>
-                                      <StackLayout Grid.Column="2">
+                                      <!--<StackLayout Grid.Column="2">
                                             <Button BackgroundColor="DodgerBlue" Text="Add Coin" TextColor="Black"></Button>
-                                      </StackLayout>                        
+                                      </StackLayout>-->                        
                                 </Grid>
 
-                <ListView ItemsSource="{Binding CoinmarketCap_Coins}" Grid.Row="3" BackgroundColor="Black">
+                <ListView ItemsSource="{Binding Portfolios}" Grid.Row="3" BackgroundColor="Black">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-
-                         
-
+                                
+                                        <Label Text="{Binding PortfolioName}" TextColor="WhiteSmoke"></Label>                                                                  
+                                                   
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
