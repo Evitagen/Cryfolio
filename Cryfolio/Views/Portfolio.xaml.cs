@@ -46,7 +46,7 @@ namespace Cryfolio.Views
 
         private void showAddPortfolio(object o, EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(new NewPortfolio());
+            PopupNavigation.Instance.PushAsync(new NewPortfolio(viewModel));
         }
     }
 }

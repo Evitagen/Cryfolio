@@ -20,24 +20,36 @@
     <!--  You can use any elements here which are extended from Xamarin.Forms.View  -->
     <StackLayout Margin="12"
                  Padding="24"
-                 BackgroundColor="White"
+                 BackgroundColor="#333333"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
         <StackLayout>
-            <Label Text="Login" />
+            <Label Text="Enter Portfolio Name" TextColor="WhiteSmoke" />
             <Entry FontSize="30"
-                   Text="username@email.com" />
+                   Text=""
+                   TextColor="WhiteSmoke"/>
         </StackLayout>
-        <StackLayout>
-            <Label Text="Password" />
-            <Entry FontSize="30"
-                   IsPassword="True"
-                   Text="password123" />
-        </StackLayout>
-        <Button BackgroundColor="DodgerBlue"
-                FontSize="30"
-                Text="Login"
-                TextColor="White" />
+      
+
+        <Grid BackgroundColor="#333333">
+                                      <Grid.ColumnDefinitions>
+                                             <!--<ColumnDefinition Width="10*"/>-->
+                                             <ColumnDefinition Width="50*"/>
+                                             <ColumnDefinition Width="50*"/>
+                                           <!--<ColumnDefinition Width="10*"/>-->
+                                      </Grid.ColumnDefinitions>
+                            
+                                      <StackLayout Grid.Column="0">
+                                             <Button Clicked="Ok" BackgroundColor="#4dff88" Text="Ok" TextColor="Black"></Button>
+                                      </StackLayout>
+                                      <StackLayout Grid.Column="1">
+                                            <Button Clicked="Cancel" BackgroundColor="#ff6666" Text="Cancel" TextColor="Black"></Button>
+                                      </StackLayout>
+
+             
+        </Grid>
+
+
     </StackLayout>
 
 </pages:PopupPage>

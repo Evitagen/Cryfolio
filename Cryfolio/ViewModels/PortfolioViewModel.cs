@@ -23,12 +23,12 @@ namespace Cryfolio.ViewModels
             Portfolios = new ObservableCollection<Portfolio>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            //MessagingCenter.Subscribe<NewPortfolioPage, Portfolio>(this, "AddItem", async (obj, portfolio) =>
-            //{
-            //    var _portfolio = portfolio as Portfolio;
-            //    Portfolios.Add(_portfolio);
-            //    await DataStore.AddPortfolioAsync(_portfolio);
-            //});
+            MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
+            {
+                var _portfolio = portfolio as Portfolio;
+                Portfolios.Add(_portfolio);
+                await DataStore.AddPortfolioAsync(_portfolio);
+            });
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -56,5 +56,26 @@ namespace Cryfolio.ViewModels
                 IsBusy = false;
             }
         }
+
+        internal int getNewPortfolio_ID()
+        {
+            int intReturn = 0;
+
+            if (Portfolios.Count > 0)
+            {
+                foreach (var portfolio in Portfolios)
+                {
+                    if (portfolio.PortfolioID >= intReturn)
+                    {
+                        intReturn = portfolio.PortfolioID;
+                        intReturn++;
+                    }
+                }
+            }
+
+            return intReturn;   
+        }
+
+
     }
 }

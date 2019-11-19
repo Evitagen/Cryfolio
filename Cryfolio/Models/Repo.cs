@@ -98,7 +98,7 @@ namespace Cryfolio.Models
                             var allItems = await Portfolios.ToListAsync().ConfigureAwait(false);
                             return allItems;
                         }
-
+         
                         public async Task<bool> AddPortfolioAsync(Portfolio portfolio)
                         {
                             //Debug.WriteLine("**** AddItemAsync");

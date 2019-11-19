@@ -24,7 +24,7 @@ namespace Cryfolio.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             // Required on iOS for EFcore.
-            // SQLitePCL.Batteries_V2.Init();
+            SQLitePCL.Batteries_V2.Init();
 
             Rg.Plugins.Popup.Popup.Init();
 
@@ -39,7 +39,7 @@ namespace Cryfolio.iOS
             }
 
             var dbPath = Path.Combine(libPath, "database.sqlite");
-            LoadApplication(new App(libPath));
+            LoadApplication(new App(dbPath));
 
             return base.FinishedLaunching(app, options);
         }
