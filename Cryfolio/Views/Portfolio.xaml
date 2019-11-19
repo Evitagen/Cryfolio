@@ -25,7 +25,7 @@
                                       </Grid.ColumnDefinitions>
                             
                                       <StackLayout Grid.Column="1">
-                                             <Button BackgroundColor="DodgerBlue" Text="Add Portfolio" TextColor="Black"></Button>
+                                             <Button Clicked="showAddPortfolio" BackgroundColor="DodgerBlue" Text="Add Portfolio" TextColor="Black"></Button>
                                       </StackLayout>
                                       <!--<StackLayout Grid.Column="2">
                                             <Button BackgroundColor="DodgerBlue" Text="Add Coin" TextColor="Black"></Button>

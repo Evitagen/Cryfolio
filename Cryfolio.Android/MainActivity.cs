@@ -22,6 +22,9 @@ namespace Cryfolio.Droid
 
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             var dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "database.sqlite");
             LoadApplication(new App(dbPath));

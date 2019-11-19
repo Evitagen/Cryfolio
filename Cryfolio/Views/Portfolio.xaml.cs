@@ -1,5 +1,6 @@
 ﻿using System;
 using Cryfolio.ViewModels;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace Cryfolio.Views
@@ -41,6 +42,11 @@ namespace Cryfolio.Views
             {
                 Console.WriteLine(item.PortfolioName);
             }
+        }
+
+        private void showAddPortfolio(object o, EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new NewPortfolio());
         }
     }
 }

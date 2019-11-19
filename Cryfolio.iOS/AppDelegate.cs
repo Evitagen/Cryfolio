@@ -24,7 +24,9 @@ namespace Cryfolio.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             // Required on iOS for EFcore.
-           // SQLitePCL.Batteries_V2.Init();
+            // SQLitePCL.Batteries_V2.Init();
+
+            Rg.Plugins.Popup.Popup.Init();
 
             global::Xamarin.Forms.Forms.Init();
 
