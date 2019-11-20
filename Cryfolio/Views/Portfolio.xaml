@@ -1,44 +1,58 @@
 ﻿<!--<?xml version="1.0" encoding="UTF-8"?>-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cryfolio.Views.Portfolio">
+             x:Class="Cryfolio.Views.Portfolio"
+             BackgroundColor="Black">
 
      <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
              <RowDefinition Height="Auto"/>
+            <RowDefinition Height="7"/>
              <RowDefinition Height="Auto"/>
-             <RowDefinition Height="*"/>
              <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
 
-            <BoxView BackgroundColor="Black" Grid.Row="0"></BoxView>
-  
-         <Label Text="Default Portfolio" HorizontalTextAlignment="Center" TextColor="WhiteSmoke"></Label>
 
-                                <Grid Grid.Row="1" BackgroundColor="Black">
-                                      <Grid.ColumnDefinitions>
-                                             <ColumnDefinition Width="30*"/>
-                                             <ColumnDefinition Width="40*"/>
-                                             <!--<ColumnDefinition Width="40*"/>-->
-                                           <ColumnDefinition Width="30*"/>
-                                      </Grid.ColumnDefinitions>
-                            
-                                      <StackLayout Grid.Column="1">
-                                             <Button Clicked="showAddPortfolio" BackgroundColor="DodgerBlue" Text="Add Portfolio" TextColor="Black"></Button>
-                                      </StackLayout>
-                                      <!--<StackLayout Grid.Column="2">
-                                            <Button BackgroundColor="DodgerBlue" Text="Add Coin" TextColor="Black"></Button>
-                                      </StackLayout>-->                        
-                                </Grid>
+
+         <BoxView BackgroundColor="Black" Grid.Row="0"></BoxView>
+  
+     
+
+         <Grid Grid.Row="1" BackgroundColor="Black" HorizontalOptions="Center">
+              <Button Clicked="showAddPortfolio" BackgroundColor="DodgerBlue" Text="Add Portfolio" TextColor="Black"></Button>                                        
+         </Grid>
+
+         <BoxView BackgroundColor="Black" Grid.Row="2"></BoxView>
 
                 <ListView ItemsSource="{Binding Portfolios}" Grid.Row="3" BackgroundColor="Black">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                
-                                        <Label Text="{Binding PortfolioName}" TextColor="WhiteSmoke"></Label>                                                                  
-                                                   
+
+                                <Grid RowSpacing="0">
+
+                                        <Grid.ColumnDefinitions>
+                                             <ColumnDefinition Width="40*"/>
+                                             <ColumnDefinition Width="20*"/>
+                                             <ColumnDefinition Width="20*"/>
+                                             <ColumnDefinition Width="20*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Column="0">
+                                            <Label Text="{Binding PortfolioName}" TextColor="WhiteSmoke" TranslationY="8" TranslationX="8"></Label>
+                                        </StackLayout>
+
+                                  
+                                           <Button Grid.Column="1" BackgroundColor="#4dff88" Text="View" TextColor="Black"></Button> 
+                                       
+
+                                 
+                                           <Button Grid.Column="2" BackgroundColor="#ff6666" Text="Delete" TextColor="Black"></Button> 
+                                      
+                                   
+                               </Grid>
+                                                                                                                                  
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

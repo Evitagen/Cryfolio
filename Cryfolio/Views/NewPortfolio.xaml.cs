@@ -33,7 +33,7 @@ namespace Cryfolio.Views
                     intPortfolioId = viewModel.getNewPortfolio_ID();
                 }
 
-                newPortfolio.PortfolioName = "TEST NAME";
+                newPortfolio.PortfolioName = PortfolioValue.Text;
                 newPortfolio.PortfolioID = intPortfolioId;   
                 //newPortfolio.coinsHodle = 
                 

@@ -27,7 +27,8 @@
             <Label Text="Enter Portfolio Name" TextColor="WhiteSmoke" />
             <Entry FontSize="30"
                    Text=""
-                   TextColor="WhiteSmoke"/>
+                   TextColor="WhiteSmoke"
+                   x:Name="PortfolioValue"/>
         </StackLayout>
       
 
