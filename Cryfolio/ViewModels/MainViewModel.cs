@@ -10,6 +10,7 @@ namespace Cryfolio.ViewModels
     {
 
         private static System.Timers.Timer aTimer;
+        public string Message { get; set; } = "default";
 
         public MainViewModel()
         {
