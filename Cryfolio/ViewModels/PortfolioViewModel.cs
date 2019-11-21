@@ -76,6 +76,25 @@ namespace Cryfolio.ViewModels
             return intReturn;   
         }
 
+        internal bool Name_Exists(string name)
+        {
+            bool blnReturn = false;
+
+            if (Portfolios.Count > 0)
+            {
+                foreach (var portfolio in Portfolios)
+                {
+                    if (portfolio.PortfolioName == name)
+                    {
+                        blnReturn = true;
+                    }
+                }
+            }
+
+            return blnReturn;
+
+        }
+
 
     }
 }

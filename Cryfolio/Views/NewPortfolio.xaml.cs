@@ -10,7 +10,6 @@ namespace Cryfolio.Views
     {
         PortfolioViewModel viewModel;
         Models.Portfolio newPortfolio = new Models.Portfolio();
-        int intPortfolioId = 0;
 
         public NewPortfolio(PortfolioViewModel ViewModel)
         {
@@ -18,33 +17,23 @@ namespace Cryfolio.Views
             InitializeComponent();
         }
 
-
-
         void Ok(object sender, System.EventArgs e)
+        {
+               
+            if (!viewModel.Name_Exists(PortfolioValue.Text))
             {
-                PopupNavigation.Instance.PopAsync(true);
-
-
-                // gets the next new id number
-                if (viewModel.Portfolios.Count == 0)
-                {
-                    viewModel.LoadItemsCommand.Execute(null);
-                    if (viewModel.Portfolios.Count > 0)
-                    intPortfolioId = viewModel.getNewPortfolio_ID();
-                }
-
                 newPortfolio.PortfolioName = PortfolioValue.Text;
-                newPortfolio.PortfolioID = intPortfolioId;   
-                //newPortfolio.coinsHodle = 
-                
-
+                newPortfolio.PortfolioID = viewModel.getNewPortfolio_ID();
                 MessagingCenter.Send(this, "AddItem", newPortfolio);
-            }
-
-            void Cancel(object sender, System.EventArgs e)
-            {
                 PopupNavigation.Instance.PopAsync(true);
             }
+        
+        }
+
+        void Cancel(object sender, System.EventArgs e)
+        {
+             PopupNavigation.Instance.PopAsync(true);
+        }
         
     }
 
