@@ -13,19 +13,19 @@
                                    HasBackgroundAnimation="True"
                                    PositionIn="Center"
                                    PositionOut="Center"
-                                   ScaleIn="2"
-                                   ScaleOut="1.4" />
+                                   ScaleIn="4"
+                                   ScaleOut="2" />
         </alerting:PopupPage.Animation>
 
-      <StackLayout Margin="12"               
+      <StackLayout Margin="24"               
                  BackgroundColor="#333333"
-                 HorizontalOptions="Center"
+                 HorizontalOptions="Start"
                  VerticalOptions="Start">
     
       
 
         <Grid BackgroundColor="#333333">                   
-                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start" BackgroundColor="#4dff88" x:Name="asdf" TextColor="Black"></Label>  
+                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start" BackgroundColor="#ff6666" x:Name="asdf" TextColor="Black"></Label>  
         </Grid>
 
 

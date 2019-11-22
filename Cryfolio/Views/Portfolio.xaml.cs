@@ -28,21 +28,6 @@ namespace Cryfolio.Views
             PopupNavigation.Instance.Popped += (sender, e) => ShowError();
         }
 
-        void MainPage(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new MainPage());
-        }
-
-        void Alerts(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new Alerts());
-        }
-
-        void Settings(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new Settings());
-        }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -62,8 +47,76 @@ namespace Cryfolio.Views
             if (newPortfolio.Already_Exists() && blnErrorShown == false)
             {
                await PopupNavigation.Instance.PushAsync(new Alertify(newPortfolio.Portfolio_Name + " Already Exist"));
-                blnErrorShown = true;
+               blnErrorShown = true;
+
+               System.Threading.Thread.Sleep(700);
+               await PopupNavigation.Instance.PopAsync(true);
             }
+        }
+
+        private async void Delete(object sender, EventArgs e)
+        {
+            try
+            {
+                Button button = (Button)sender;
+                var imt = (Grid)button.Parent;
+                var c1 = (Label)imt.Children[0];
+                var name = c1.Text;
+
+                Models.Portfolio portfolio = viewModel.GetPortfolio(viewModel.GetPortfolioID(name));
+
+                viewModel.Delete_PortfolioAsync(portfolio);
+
+                // MessagingCenter.Send(this, "Delete", portfolio); // need to sort this
+            }
+            catch(Exception ex)
+            {
+                await PopupNavigation.Instance.PushAsync(new Alertify("Error - " + ex.ToString()));
+                System.Threading.Thread.Sleep(700);
+                await PopupNavigation.Instance.PopAsync(true);
+            }
+       
+        }
+
+        private async void View(object sender, EventArgs e)
+        {
+            try
+            {
+                Button button = (Button)sender;
+                var imt = (Grid)button.Parent;
+                var c1 = (Label)imt.Children[0];
+                var name = c1.Text;
+                var id = viewModel.GetPortfolioID(name);
+
+                Navigation.PushModalAsync(new Portfolio_Coins(name, id));
+
+            }
+            catch (Exception ex)
+            {
+                await PopupNavigation.Instance.PushAsync(new Alertify("Error - " + ex.ToString()));
+                System.Threading.Thread.Sleep(700);
+                await PopupNavigation.Instance.PopAsync(true);
+            }
+
+        }
+
+
+
+        // Navigation
+
+        void MainPage(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new MainPage());
+        }
+
+        void Alerts(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new Alerts());
+        }
+
+        void Settings(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new Settings());
         }
     }
 }

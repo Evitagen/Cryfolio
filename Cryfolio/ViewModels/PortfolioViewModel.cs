@@ -7,6 +7,7 @@ using Cryfolio.Services;
 using Xamarin.Forms;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using Command = Xamarin.Forms.Command;
+using System.Linq;
 
 namespace Cryfolio.ViewModels
 {
@@ -26,9 +27,15 @@ namespace Cryfolio.ViewModels
             MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
             {
                 var _portfolio = portfolio as Portfolio;
-                Portfolios.Add(_portfolio);
                 await DataStore.AddPortfolioAsync(_portfolio);
+                Portfolios.Add(_portfolio);
             });
+
+            //MessagingCenter.Subscribe<Portfolio>(this, "DeleteItem", async (portfolio) =>
+            //{
+            //    Portfolios.Remove(portfolio);
+            //    await DataStore.DeletePortfolioAsync(portfolio.PortfolioID);
+            //});
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -57,6 +64,12 @@ namespace Cryfolio.ViewModels
             }
         }
 
+        internal async Task Delete_PortfolioAsync(Portfolio portfolio)
+        {
+            Portfolios.Remove(portfolio);
+            await DataStore.DeletePortfolioAsync(portfolio.PortfolioID);
+        }
+
         internal int getNewPortfolio_ID()
         {
             int intReturn = 0;
@@ -76,9 +89,16 @@ namespace Cryfolio.ViewModels
             return intReturn;   
         }
 
+
         internal bool Name_Exists(string name)
         {
-            bool blnReturn = false;
+            return Portfolios.Any(x => x.PortfolioName == name);
+           
+        }
+
+        internal int GetPortfolioID(string name)
+        {
+            int intReturn = 0;
 
             if (Portfolios.Count > 0)
             {
@@ -86,13 +106,20 @@ namespace Cryfolio.ViewModels
                 {
                     if (portfolio.PortfolioName == name)
                     {
-                        blnReturn = true;
+                        intReturn = portfolio.PortfolioID;
                     }
                 }
             }
 
-            return blnReturn;
+            return intReturn;
+        }
 
+        internal Portfolio GetPortfolio(int PortfolioID)
+        {
+            var result = (from b in Portfolios
+                          where b.PortfolioID.Equals(PortfolioID)
+                          select b).FirstOrDefault();
+            return (Portfolio)result;
         }
 
 

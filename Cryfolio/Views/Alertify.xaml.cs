@@ -15,8 +15,6 @@ namespace Cryfolio.Views
             InitializeComponent();
             Message = strMessage;
             asdf.Text = Message;
-            //System.Threading.Thread.Sleep(1000);
-            //PopupNavigation.Instance.PopAsync(true);
         }
     }
 }
