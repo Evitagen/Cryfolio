@@ -29,6 +29,7 @@ namespace Cryfolio.ViewModels
                 var _portfolio = portfolio as Portfolio;
                 await DataStore.AddPortfolioAsync(_portfolio);
                 Portfolios.Add(_portfolio);
+                await ExecuteLoadItemsCommand();
             });
 
             //MessagingCenter.Subscribe<Portfolio>(this, "DeleteItem", async (portfolio) =>
@@ -38,7 +39,7 @@ namespace Cryfolio.ViewModels
             //});
         }
 
-        async Task ExecuteLoadItemsCommand()
+       internal async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
                 return;
