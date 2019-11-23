@@ -30,7 +30,8 @@ namespace Cryfolio.Views
                 blnAlready_Exists = false;
                 newPortfolio.PortfolioName = PortfolioValue.Text;
                 newPortfolio.PortfolioID = viewModel.getNewPortfolio_ID();
-                MessagingCenter.Send(this, "AddItem", newPortfolio);
+                //MessagingCenter.Send(this, "AddItem", newPortfolio);
+                viewModel.AddPortfolio(newPortfolio);
                 PortfolioValue.Text = "";
                 PopupNavigation.Instance.PopAsync(true);
             }
@@ -40,7 +41,7 @@ namespace Cryfolio.Views
                 PortfolioValue.Text = "";
                 PopupNavigation.Instance.PopAsync(true);              
             }
-        
+
         }
 
         void Cancel(object sender, System.EventArgs e)
@@ -53,7 +54,6 @@ namespace Cryfolio.Views
         {
             return blnAlready_Exists;
         }
-
 
     }
 

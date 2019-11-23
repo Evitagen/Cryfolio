@@ -24,20 +24,23 @@ namespace Cryfolio.ViewModels
             Portfolios = new ObservableCollection<Portfolio>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
-            {
-                var _portfolio = portfolio as Portfolio;
-                await DataStore.AddPortfolioAsync(_portfolio);
-                Portfolios.Add(_portfolio);
-                await ExecuteLoadItemsCommand();
-            });
-
-            //MessagingCenter.Subscribe<Portfolio>(this, "DeleteItem", async (portfolio) =>
+            //MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
             //{
-            //    Portfolios.Remove(portfolio);
-            //    await DataStore.DeletePortfolioAsync(portfolio.PortfolioID);
+            //    var _portfolio = portfolio as Portfolio;
+            //    await DataStore.AddPortfolioAsync(_portfolio);
+            //    Portfolios.Add(_portfolio);
+            //    await ExecuteLoadItemsCommand();
             //});
+
         }
+
+       internal async void AddPortfolio(Portfolio portfolio)
+       {
+            var _portfolio = portfolio as Portfolio;
+            await DataStore.AddPortfolioAsync(_portfolio);
+            Portfolios.Add(_portfolio);
+            await ExecuteLoadItemsCommand();
+       }
 
        internal async Task ExecuteLoadItemsCommand()
         {
@@ -77,14 +80,8 @@ namespace Cryfolio.ViewModels
 
             if (Portfolios.Count > 0)
             {
-                foreach (var portfolio in Portfolios)
-                {
-                    if (portfolio.PortfolioID >= intReturn)
-                    {
-                        intReturn = portfolio.PortfolioID;
-                        intReturn++;
-                    }
-                }
+                intReturn = Portfolios.Max(x => x.PortfolioID);
+                intReturn++;
             }
 
             return intReturn;   
@@ -99,19 +96,14 @@ namespace Cryfolio.ViewModels
 
         internal int GetPortfolioID(string name)
         {
+
             int intReturn = 0;
 
-            if (Portfolios.Count > 0)
+            Portfolio portfolio = Portfolios.Single(s => s.PortfolioName == name);
+            if (portfolio != null)
             {
-                foreach (var portfolio in Portfolios)
-                {
-                    if (portfolio.PortfolioName == name)
-                    {
-                        intReturn = portfolio.PortfolioID;
-                    }
-                }
+                intReturn = portfolio.PortfolioID;
             }
-
             return intReturn;
         }
 
@@ -122,7 +114,6 @@ namespace Cryfolio.ViewModels
                           select b).FirstOrDefault();
             return (Portfolio)result;
         }
-
 
     }
 }
