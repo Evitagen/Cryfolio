@@ -34,19 +34,11 @@
                                              <ColumnDefinition Width="60"/>
                                       </Grid.ColumnDefinitions>
 
-                                  
-                                      <StackLayout Grid.Column="2">
-                                             <Label Text="Coin" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="3">
-                                            <Label Text="Price" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="4">
-                                            <Label Text="% 24hr" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="5">
-                                            <Label Text="% 7day" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
+                                            <Label Grid.Column="2" Text="Coin" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
+                                            <Label Grid.Column="3" Text="Price" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
+                                            <Label Grid.Column="4" Text="% 24hr" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
+                                            <Label Grid.Column="5" Text="% 7day" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
+                               
                                 </Grid>
 
 
@@ -71,29 +63,14 @@
                                              <ColumnDefinition Width="60"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <StackLayout Grid.Column="0">
-                                            <Label Text="{Binding CoinMcapRank}" TextColor="WhiteSmoke" TranslationY="8" TranslationX="8"></Label>
-                                        </StackLayout>
+                                
+                                            <Label Grid.Column="0" Text="{Binding CoinMcapRank}" TextColor="WhiteSmoke" TranslationY="8" TranslationX="8"></Label>
+                                            <Image Grid.Column="1" Source="{Binding imagelocation}" Aspect="AspectFit"></Image>
+                                            <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding name}" TextColor="WhiteSmoke"></Label>
+                                            <Label Grid.Column="3" HorizontalTextAlignment="Start" Text="{Binding price}" TextColor="WhiteSmoke"></Label>
+                                            <Label Grid.Column="4" HorizontalTextAlignment="Start" Text="{Binding PercentChange24hr}" TextColor="{Binding PercentChange24hrColor}"></Label>
+                                            <Label Grid.Column="5" HorizontalTextAlignment="Start" Text="{Binding PercentChange7day}" TextColor="{Binding PercentChange7dayColor}"></Label>
 
-                                        <StackLayout Grid.Column="1">
-                                            <Image Source="{Binding imagelocation}" Aspect="AspectFit"></Image>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Column="2">
-                                            <Label HorizontalTextAlignment="Start" Text="{Binding name}" TextColor="WhiteSmoke"></Label>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Column="3">
-                                            <Label HorizontalTextAlignment="Start" Text="{Binding price}" TextColor="WhiteSmoke"></Label>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Column="4">
-                                            <Label HorizontalTextAlignment="Start" Text="{Binding PercentChange24hr}" TextColor="{Binding PercentChange24hrColor}"></Label>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Column="5">
-                                            <Label HorizontalTextAlignment="Start" Text="{Binding PercentChange7day}" TextColor="{Binding PercentChange7dayColor}"></Label>
-                                        </StackLayout>
                                </Grid>
 
 
@@ -112,20 +89,12 @@
                                              <ColumnDefinition Width="25*"/>
                                              <ColumnDefinition Width="25*"/>          
                                       </Grid.ColumnDefinitions>
-
-                                  
-                                      <StackLayout Grid.Column="0" BackgroundColor="Black">
-                                             <Button BackgroundColor="#303036" Text="Coins" TextColor="WhiteSmoke"></Button>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="1" BackgroundColor="Black">
-                                            <Button BackgroundColor="#303036" Text="Portfolio" Clicked="Portfolio" TextColor="WhiteSmoke"></Button>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="2" BackgroundColor="Black">
-                                            <Button BackgroundColor="#303036" Text="Alerts" Clicked="Alerts" TextColor="WhiteSmoke"></Button>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="3" BackgroundColor="Black">
-                                            <Button BackgroundColor="#303036" Text="Settings" Clicked="Settings" TextColor="WhiteSmoke"></Button>
-                                      </StackLayout>
+  
+                                      <Button Grid.Column="0" BackgroundColor="#303036" Text="Coins" TextColor="WhiteSmoke"></Button>
+                                      <Button Grid.Column="1" BackgroundColor="#303036" Text="Portfolio" Clicked="Portfolio" TextColor="WhiteSmoke"></Button>
+                                      <Button Grid.Column="2" BackgroundColor="#303036" Text="Alerts" Clicked="Alerts" TextColor="WhiteSmoke"></Button>
+                                      <Button Grid.Column="3" BackgroundColor="#303036" Text="Settings" Clicked="Settings" TextColor="WhiteSmoke"></Button>
+                                   
                   </Grid>
 
        
