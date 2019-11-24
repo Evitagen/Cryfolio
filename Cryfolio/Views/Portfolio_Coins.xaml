@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Cryfolio.Views.Portfolio_Coins">
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+             <RowDefinition Height="5*"/>
+             <RowDefinition Height="70*"/>
+             <RowDefinition Height="6.8*"/>
+         </Grid.RowDefinitions>
+
+
+            <Grid Grid.Row="0" BackgroundColor="Black">
+
+                      <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="50"/>
+                      </Grid.ColumnDefinitions>
+                              
+                      <Label Grid.Column="1" x:Name="PortfolioName" TextColor="WhiteSmoke" BackgroundColor="Black" VerticalTextAlignment="Center"></Label>
+                      <Button Grid.Column="2" Clicked="AddCoin" BackgroundColor="DodgerBlue" Text="Add Coins" TextColor="Black" VerticalOptions="Center"></Button>
+          
+            </Grid>
+
+
+ 
+
+
+            <Grid Grid.Row="1" BackgroundColor="Black">
+
+                      <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="18*"/> 
+                      </Grid.ColumnDefinitions>
+                              
+                      <Button Grid.Column="1" Text="Coin" TextColor="WhiteSmoke" BackgroundColor="DarkSlateGray"></Button>
+                      <Button Grid.Column="2" Text="Price" TextColor="WhiteSmoke" BackgroundColor="DarkSlateGray"></Button>
+                      <Button Grid.Column="3" Text="Holdings" TextColor="WhiteSmoke" BackgroundColor="DarkSlateGray"></Button>                                          
+                      <Button Grid.Column="4" Text="Total" TextColor="WhiteSmoke" BackgroundColor="DarkSlateGray"></Button>
+                      <Button Grid.Column="5" Text="Trans" TextColor="WhiteSmoke" BackgroundColor="DarkSlateGray"></Button>
+            </Grid>
+
+
+   
+            <ListView ItemsSource="{Binding CoinmarketCap_Coins}" Grid.Row="2" BackgroundColor="Black">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                               <Grid RowSpacing="0">
+
+                                        <Grid.ColumnDefinitions>
+                                              <ColumnDefinition Width="2*"/>
+                                              <ColumnDefinition Width="20*"/>
+                                              <ColumnDefinition Width="20*"/>
+                                              <ColumnDefinition Width="20*"/>
+                                              <ColumnDefinition Width="20*"/>
+                                              <ColumnDefinition Width="18*"/> 
+                                        </Grid.ColumnDefinitions>
+
+                                                                                               
+                                        <Image Grid.Column="1" Source="{Binding imagelocation}" Aspect="AspectFit"></Image>                         
+                                        <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding name}" TextColor="WhiteSmoke"></Label>
+                                        <Label Grid.Column="3" HorizontalTextAlignment="Start" Text="{Binding price}" TextColor="WhiteSmoke"></Label>
+                    
+                               </Grid>
+
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+            </ListView>
+
+
+
+            <Grid Grid.Row="3" BackgroundColor="Black" Padding="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="25*"/>
+                           <ColumnDefinition Width="25*"/>
+                           <ColumnDefinition Width="25*"/>
+                           <ColumnDefinition Width="25*"/>          
+                    </Grid.ColumnDefinitions>
+                
+                    <Button Grid.Column="0" BackgroundColor="#303036" Text="Coins" Clicked="MainPage" TextColor="WhiteSmoke"></Button>                 
+                    <Button Grid.Column="1" BackgroundColor="#303036" Text="Portfolio" Clicked="Portfolio" TextColor="WhiteSmoke"></Button>                                
+                    <Button Grid.Column="2" BackgroundColor="#303036" Text="Alerts" Clicked="Alerts" TextColor="WhiteSmoke"></Button>           
+                    <Button Grid.Column="3" BackgroundColor="#303036" Text="Settings" Clicked="Settings" TextColor="WhiteSmoke"></Button>
+                                    
+            </Grid>
+
+       
+    </Grid>
+
+</ContentPage>
