@@ -89,7 +89,7 @@ namespace Cryfolio.Views
                 var name = c1.Text;
                 var id = viewModel.GetPortfolioID(name);
 
-                Navigation.PushModalAsync(new Portfolio_Coins(name, id));
+                Navigation.PushModalAsync(new Portfolio_Coins(name, id, viewModel));
 
             }
             catch (Exception ex)

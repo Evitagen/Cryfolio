@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-
+using Cryfolio.ViewModels;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace Cryfolio.Views
@@ -8,13 +8,26 @@ namespace Cryfolio.Views
     public partial class Portfolio_Coins : ContentPage
     {
         int PortfolioID;
+        AddCoin addCoin;
 
-        public Portfolio_Coins(string strPortfolioName, int intPortfolioId)
+        public Portfolio_Coins(string strPortfolioName, int intPortfolioId, PortfolioViewModel viewModel)
         {
             InitializeComponent();
             PortfolioName.Text = strPortfolioName;
             PortfolioID = intPortfolioId;
+
+            addCoin = new AddCoin(viewModel);
         }
+
+
+
+        async void AddCoinAsync(object sender, EventArgs e)
+        {
+            await PopupNavigation.Instance.PushAsync(addCoin);
+            Console.WriteLine("Add Coin");
+        }
+
+
 
         void MainPage(object sender, EventArgs e)
         {
@@ -36,10 +49,7 @@ namespace Cryfolio.Views
             Navigation.PushModalAsync(new Settings());
         }
 
-        void AddCoin(object sender, EventArgs e)
-        {
-            Console.WriteLine("Add Coin");
-        }
+     
 
     }
 }
