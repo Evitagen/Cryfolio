@@ -14,31 +14,30 @@
 
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2"/>
+             <RowDefinition Height="40"/>
              <RowDefinition Height="Auto"/>
              <RowDefinition Height="*"/>
              <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
 
             <BoxView BackgroundColor="Black" Grid.Row="0"></BoxView>
-         <!--<BoxView BackgroundColor="Black" Grid.Row="1"></BoxView>-->
+
 
                                 <Grid Grid.Row="1" BackgroundColor="Black">
                                      <Grid.ColumnDefinitions>
-                                             <ColumnDefinition Width="20"/>
-                                             <ColumnDefinition Width="50"/>
+                                      
+                                             <ColumnDefinition Width="70"/>
                                              <ColumnDefinition Width="130"/>
                                              <ColumnDefinition Width="60"/>
                                              <ColumnDefinition Width="60"/>
                                              <ColumnDefinition Width="60"/>
                                       </Grid.ColumnDefinitions>
-
-                                            <Label Grid.Column="2" Text="Coin" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                            <Label Grid.Column="3" Text="Price" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                            <Label Grid.Column="4" Text="% 24hr" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                            <Label Grid.Column="5" Text="% 7day" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                               
+                                            <Button Grid.Column="0" Text="Rank" BackgroundColor="#303036" TextColor="WhiteSmoke"></Button>
+                                            <Button Grid.Column="1" Clicked="Coin_Sort" Text="Coin" BackgroundColor="#303036" TextColor="WhiteSmoke"></Button>
+                                            <Button Grid.Column="2" Clicked="Price_Sort" Text="Price" BackgroundColor="#303036" TextColor="WhiteSmoke"></Button>
+                                            <Button Grid.Column="3" Clicked="t4hr_Change" Text="%24" BackgroundColor="#303036" TextColor="WhiteSmoke"></Button>
+                                            <Button Grid.Column="4" Clicked="s7day_Change" Text="%7" BackgroundColor="#303036" TextColor="WhiteSmoke"></Button>
                                 </Grid>
 
 
@@ -64,12 +63,12 @@
                                         </Grid.ColumnDefinitions>
 
                                 
-                                            <Label Grid.Column="0" Text="{Binding CoinMcapRank}" TextColor="WhiteSmoke" TranslationY="8" TranslationX="8"></Label>
+                                            <Label Grid.Column="0" Text="{Binding CoinMcapRank}" TextColor="WhiteSmoke" TranslationY="14" TranslationX="8"></Label>
                                             <Image Grid.Column="1" Source="{Binding imagelocation}" Aspect="AspectFit"></Image>
-                                            <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding name}" TextColor="WhiteSmoke"></Label>
-                                            <Label Grid.Column="3" HorizontalTextAlignment="Start" Text="{Binding price}" TextColor="WhiteSmoke"></Label>
-                                            <Label Grid.Column="4" HorizontalTextAlignment="Start" Text="{Binding PercentChange24hr}" TextColor="{Binding PercentChange24hrColor}"></Label>
-                                            <Label Grid.Column="5" HorizontalTextAlignment="Start" Text="{Binding PercentChange7day}" TextColor="{Binding PercentChange7dayColor}"></Label>
+                                            <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding name}" TextColor="WhiteSmoke" TranslationY="14"></Label>
+                                            <Label Grid.Column="3" HorizontalTextAlignment="Start" Text="{Binding price}" TextColor="WhiteSmoke" TranslationY="14"></Label>
+                                            <Label Grid.Column="4" HorizontalTextAlignment="Start" Text="{Binding PercentChange24hr}" TranslationY="14" TextColor="{Binding PercentChange24hrColor}"></Label>
+                                            <Label Grid.Column="5" HorizontalTextAlignment="Start" Text="{Binding PercentChange7day}" TranslationY="14" TextColor="{Binding PercentChange7dayColor}"></Label>
 
                                </Grid>
 

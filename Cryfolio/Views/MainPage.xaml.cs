@@ -30,6 +30,27 @@ namespace Cryfolio
         {
             Navigation.PushModalAsync(new Settings());
         }
+
+
+        void Coin_Sort(object sender, EventArgs e)
+        {
+        
+        }
+
+        void Price_Sort(object sender, EventArgs e)
+        {
+            
+        }
+
+        void t4hr_Change(object sender, EventArgs e)
+        {
+           
+        }
+
+        void s7day_Change(object sender, EventArgs e)
+        {
+         
+        }
     }
 
 }
