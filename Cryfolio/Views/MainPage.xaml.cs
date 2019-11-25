@@ -10,10 +10,14 @@ namespace Cryfolio
     //[DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+
+        MainViewModel coins;
+
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new MainViewModel();
+            coins = new MainViewModel();
+            this.BindingContext = coins;           
         }
 
         void Portfolio(object sender, EventArgs e)
@@ -32,24 +36,29 @@ namespace Cryfolio
         }
 
 
+        void Rank_Sort(object sender, EventArgs e)
+        {
+            coins.SortByRank();
+        }
+
         void Coin_Sort(object sender, EventArgs e)
         {
-        
+            coins.SortByName();
         }
 
         void Price_Sort(object sender, EventArgs e)
         {
-            
+            coins.SortByPrice();
         }
 
         void t4hr_Change(object sender, EventArgs e)
         {
-           
+            coins.Sort24();
         }
 
         void s7day_Change(object sender, EventArgs e)
         {
-         
+            coins.Sort7day();
         }
     }
 

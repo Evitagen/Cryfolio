@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Timers;
 using Cryfolio.Services;
 using Models.CoinMarketPortfolio;
@@ -11,6 +12,12 @@ namespace Cryfolio.ViewModels
 
         private static System.Timers.Timer aTimer;
         public string Message { get; set; } = "default";
+
+        bool PriceAccending = false;
+        bool RankAccending = false;
+        bool NameAccending = false;
+        bool twentyFourAccending = false;
+        bool sevendayAccending = false;
 
         public MainViewModel()
         {
@@ -25,6 +32,79 @@ namespace Cryfolio.ViewModels
             var services = new CoinList();
             CoinmarketCap_Coins = services.GetCoinPrices().Result;
         }
+
+        internal void SortByPrice()
+        {
+            if (PriceAccending)
+            {
+                CoinmarketCap_Coins = coinmarketCap_Coins.OrderBy(x => x.price).ToList();
+                PriceAccending = false;
+            }
+            else
+            {
+                CoinmarketCap_Coins = coinmarketCap_Coins.OrderByDescending(x => x.price).ToList();
+                PriceAccending = true;
+            }
+        }
+
+        internal void SortByRank()
+        {
+            if (RankAccending)
+            {
+                CoinmarketCap_Coins = coinmarketCap_Coins.OrderBy(x => x.CoinMcapRank).ToList();
+                RankAccending = false;
+            }
+            else
+            {
+                CoinmarketCap_Coins = coinmarketCap_Coins.OrderByDescending(x => x.CoinMcapRank).ToList();
+                RankAccending = true;
+            }
+        }
+
+        internal void SortByName()
+        {
+            if (NameAccending)
+            {
+                CoinmarketCap_Coins = coinmarketCap_Coins.OrderBy(x => x.name).ToList();
+                NameAccending = false;
+            }
+            else
+            {
+                CoinmarketCap_Coins = coinmarketCap_Coins.OrderByDescending(x => x.name).ToList();
+                NameAccending = true;
+            }
+
+        }
+
+        internal void Sort24()
+        {
+            if (twentyFourAccending)
+            {
+                CoinmarketCap_Coins = coinmarketCap_Coins.OrderBy(x => x.PercentChange24hr).ToList();
+                twentyFourAccending = false;
+            }
+            else
+            {
+                CoinmarketCap_Coins = coinmarketCap_Coins.OrderByDescending(x => x.PercentChange24hr).ToList();
+                twentyFourAccending = true;
+            }
+        }
+
+        internal void Sort7day()
+        {
+            if (sevendayAccending)
+            {
+                CoinmarketCap_Coins = coinmarketCap_Coins.OrderBy(x => x.PercentChange7day).ToList();
+                sevendayAccending = false;
+            }
+            else
+            {
+                CoinmarketCap_Coins = coinmarketCap_Coins.OrderByDescending(x => x.PercentChange7day).ToList();
+                sevendayAccending = true;
+            }
+
+        }
+
 
 
         private List<Coins> coinmarketCap_Coins;
