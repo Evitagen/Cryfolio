@@ -60,6 +60,10 @@ namespace Cryfolio.Models
 
             // Add some initial data when runing in debug
         #if DEBUG
+
+
+
+
             modelBuilder.Entity<Portfolio>()
                 .HasData(
                     new Portfolio { PortfolioID = 1, PortfolioName = "Main" },
@@ -69,10 +73,6 @@ namespace Cryfolio.Models
         #endif
 
         }
-
-
-
-
 
 
 
@@ -109,25 +109,113 @@ namespace Cryfolio.Models
 
                         public async Task<bool> UpdatePortfolioAsync(Portfolio portfolio)
                         {
-                            //Debug.WriteLine("**** UpdateItemAsync");
-                            Portfolios.Update(portfolio);
-                            await SaveChangesAsync().ConfigureAwait(false);
-                            // No error handling. Homework :-)
-                            return true;
+                           try
+                            {
+                                Portfolios.Update(portfolio);
+                                await SaveChangesAsync().ConfigureAwait(false);
+                                return true;
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.ToString());
+                                return false;
+                            }
                         }
 
                         public async Task<bool> DeletePortfolioAsync(int id)
                         {
-                            //Debug.WriteLine("**** DeleteItemAsync");
-                            var itemToRemove = Portfolios.FirstOrDefault(x => x.PortfolioID == id);
-                            if (itemToRemove != null)
+                            try
                             {
-                                Portfolios.Remove(itemToRemove);
-                                await SaveChangesAsync().ConfigureAwait(false);
+                                var itemToRemove = Portfolios.FirstOrDefault(x => x.PortfolioID == id);
+                                if (itemToRemove != null)
+                                {
+                                    Portfolios.Remove(itemToRemove);
+                                    await SaveChangesAsync().ConfigureAwait(false);
+                                }
+
+                                return true;
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.ToString());
+                                return false;
                             }
 
-                            return true;
+
                         }
+        #endregion
+
+
+
+
+        /// <summary>
+        ///                                 CoinsHodles
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        ///
+
+        #region IDataStore<Portfolio> start
+        public async Task<CoinsHodle> GetCoinsHodlesAsync(string id)
+        {
+            //Debug.WriteLine("**** GetItemAsync");
+            var coinsHodle = await CoinsHodles.FirstOrDefaultAsync(x => x.Id.ToString() == id).ConfigureAwait(false);
+            return coinsHodle;
+        }
+
+        public async Task<IEnumerable<CoinsHodle>> GetCoinHodlesAsync(bool forceRefresh = false)
+        {
+            //Debug.WriteLine("**** GetItemsAsync");
+            // Ignore forceRefresh for now.
+            var allItems = await CoinsHodles.ToListAsync().ConfigureAwait(false);
+            return allItems;
+        }
+
+        public async Task<bool> AddCoinHodleAsync(CoinsHodle coinshodle)
+        {
+            //Debug.WriteLine("**** AddItemAsync");
+            await CoinsHodles.AddAsync(coinshodle).ConfigureAwait(false);
+            await SaveChangesAsync().ConfigureAwait(false);
+            return true;
+        }
+
+        public async Task<bool> UpdateCoinHodleAsync(CoinsHodle coinsHodle)
+        {
+
+            try
+            {
+                CoinsHodles.Update(coinsHodle);
+                await SaveChangesAsync().ConfigureAwait(false);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+         
+        }
+
+        public async Task<bool> DeleteCoinHodleAsync(int id)
+        {
+            try
+            {
+                var itemToRemove = CoinsHodles.FirstOrDefault(x => x.Id == id);
+                if (itemToRemove != null)
+                {
+                    CoinsHodles.Remove(itemToRemove);
+                    await SaveChangesAsync().ConfigureAwait(false);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+          
+        }
         #endregion
 
     }

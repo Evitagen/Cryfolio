@@ -16,15 +16,14 @@ namespace Cryfolio.Views
             PortfolioName.Text = strPortfolioName;
             PortfolioID = intPortfolioId;
 
-            addCoin = new AddCoin(viewModel);
+            addCoin = new AddCoin(viewModel, PortfolioID);
         }
 
 
 
-        async void AddCoinAsync(object sender, EventArgs e)
+        async void AddCoin(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PushAsync(addCoin);
-            Console.WriteLine("Add Coin");
         }
 
 

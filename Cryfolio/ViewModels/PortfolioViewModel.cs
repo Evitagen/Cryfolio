@@ -16,13 +16,15 @@ namespace Cryfolio.ViewModels
 
     
         public ObservableCollection<Portfolio> Portfolios { get; set; }
+        public ObservableCollection<CoinsHodle> CoinsHodle { get; set; }
+
         public Command LoadItemsCommand { get; set; }
 
         public PortfolioViewModel()
         {
             Title = "Browse";
             Portfolios = new ObservableCollection<Portfolio>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            LoadItemsCommand = new Command(async () => await ExecuteLoadPortfoliosCommand());
 
             //MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
             //{
@@ -39,10 +41,10 @@ namespace Cryfolio.ViewModels
             var _portfolio = portfolio as Portfolio;
             await DataStore.AddPortfolioAsync(_portfolio);
             Portfolios.Add(_portfolio);
-            await ExecuteLoadItemsCommand();
+            await ExecuteLoadPortfoliosCommand();
        }
 
-       internal async Task ExecuteLoadItemsCommand()
+       internal async Task ExecuteLoadPortfoliosCommand()
         {
             if (IsBusy)
                 return;

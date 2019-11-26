@@ -66,7 +66,7 @@ namespace Cryfolio.Views
                 Models.Portfolio portfolio = viewModel.GetPortfolio(viewModel.GetPortfolioID(name));
 
                 await viewModel.Delete_PortfolioAsync(portfolio);
-                await viewModel.ExecuteLoadItemsCommand();
+                await viewModel.ExecuteLoadPortfoliosCommand();
 
                 // MessagingCenter.Send(this, "Delete", portfolio); // need to sort this
             }

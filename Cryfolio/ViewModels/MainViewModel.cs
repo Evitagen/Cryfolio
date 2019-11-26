@@ -105,6 +105,12 @@ namespace Cryfolio.ViewModels
 
         }
 
+        internal string GetName(int ID)
+        {
+            string strName = CoinmarketCap_Coins.Where(x => x.CoinMcapRank == ID).SingleOrDefault()?.name;
+            return strName;
+        }
+
 
 
         private List<Coins> coinmarketCap_Coins;

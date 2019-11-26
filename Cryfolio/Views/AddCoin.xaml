@@ -25,10 +25,29 @@
         <StackLayout>
             <Label Text="Select Coin from list" TextColor="WhiteSmoke" />
 
-            <ListView ItemsSource="{Binding CoinmarketCap_Coins}"
+            <ListView ItemsSource="{Binding CoinmarketCap_Coins}" ItemTapped="Coin_Selected">
+                  <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
 
+                            <Grid RowSpacing="0" Padding="50,0,0,0">
+                                  <Grid.ColumnDefinitions>
+                                             <ColumnDefinition Width="20"/>
+                                             <ColumnDefinition Width="10"/>
+                                             <ColumnDefinition Width="70*"/>
+                                  </Grid.ColumnDefinitions>
+                               <Image Grid.Column="0" Source="{Binding imagelocation}" Aspect="AspectFit"></Image>
+                               <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding name}" TextColor="WhiteSmoke" TranslationY="14"></Label>
 
-                   />
+                             </Grid>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                 
+            </ListView>
+              
+                 
         </StackLayout>
       
 
@@ -40,11 +59,11 @@
                                            <ColumnDefinition Width="10*"/>
                                       </Grid.ColumnDefinitions>
                             
-                                      <StackLayout Grid.Column="0">
-                                             <Button BackgroundColor="#4dff88" Text="Ok" TextColor="Black"></Button>
-                                      </StackLayout>
                                       <StackLayout Grid.Column="1">
-                                            <Button BackgroundColor="#ff6666" Text="Cancel" TextColor="Black"></Button>
+                                             <Button Clicked="Ok" BackgroundColor="#4dff88" Text="Ok" TextColor="Black"></Button>
+                                      </StackLayout>
+                                      <StackLayout Grid.Column="2">
+                                            <Button Clicked="Cancel" BackgroundColor="#ff6666" Text="Cancel" TextColor="Black"></Button>
                                       </StackLayout>
             
              
