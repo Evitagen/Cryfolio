@@ -12,7 +12,7 @@ namespace Cryfolio.Views
         PortfolioViewModel PortfolioViewModel;
         MainViewModel coins;
         String SelectedCoin_name;
-        int PortfolioID;
+        Models.Portfolio Portfolio;
 
         Models.CoinsHodle newCoin = new Models.CoinsHodle();
         bool blnAlready_Exists;
@@ -24,7 +24,7 @@ namespace Cryfolio.Views
             coins = new MainViewModel();
             this.BindingContext = coins;
             PortfolioViewModel = ViewModel;
-            PortfolioID = portfolioID;
+            Portfolio = PortfolioViewModel.GetPortfolio(portfolioID);          // gets the portfolio
 
         }
 
@@ -36,17 +36,30 @@ namespace Cryfolio.Views
 
         void Ok(object sender, System.EventArgs e)
         {
-            //var imt = ListView.SelectedItemProperty.PropertyName();
+
 
             try
             {
-                Console.WriteLine(SelectedCoin_name);
 
                 //PortfolioViewModel
-                //PortfolioID
+       
+
+               if (!PortfolioViewModel.Coin_Exists_In_Portfolio(SelectedCoin_name))                  // Check if coin exist in Portfolio
+               {
+                    Console.WriteLine(SelectedCoin_name);
+               }
+               else
+               {
+                    // notification saying coin already exists
+                    PortfolioViewModel.ShowError(SelectedCoin_name + " Already Exist");
+               }
+
+               
+
+              
 
 
-                // Check if coin exist in Portfolio
+
 
             }
             catch (Exception ex)
@@ -56,6 +69,9 @@ namespace Cryfolio.Views
       
             PopupNavigation.Instance.PopAsync(true);
         }
+
+
+
 
         private void Coin_Selected(object sender, ItemTappedEventArgs e)
         {

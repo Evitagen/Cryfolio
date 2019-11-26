@@ -16,7 +16,7 @@ namespace Cryfolio.ViewModels
 
     
         public ObservableCollection<Portfolio> Portfolios { get; set; }
-        public ObservableCollection<CoinsHodle> CoinsHodle { get; set; }
+        public ObservableCollection<CoinsHodle> CoinsHodles { get; set; }
 
         public Command LoadItemsCommand { get; set; }
 
@@ -24,6 +24,7 @@ namespace Cryfolio.ViewModels
         {
             Title = "Browse";
             Portfolios = new ObservableCollection<Portfolio>();
+            CoinsHodles = new ObservableCollection<CoinsHodle>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadPortfoliosCommand());
 
             //MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
@@ -116,6 +117,48 @@ namespace Cryfolio.ViewModels
                           select b).FirstOrDefault();
             return (Portfolio)result;
         }
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="CoinsHodle"></param>
+        ///
+
+        internal async void AddCoinHodle(CoinsHodle coinHodle)
+        {
+            var _coinHodle = coinHodle as CoinsHodle;
+           // await DataStore.AddCoinHodleAsync(_coinHodle);
+            CoinsHodles.Add(_coinHodle);
+            await ExecuteLoadPortfoliosCommand();
+        }
+
+
+
+        internal bool Coin_Exists_In_Portfolio(string name)     //
+        {                                                       // TODO: replace with linq
+            bool blnReturn = false;                             //
+
+            foreach (var portfolio in Portfolios)
+            {
+                if (portfolio.PortfolioName == name)
+                {
+                    blnReturn = true;
+                }
+            }
+            return blnReturn;
+        }
+
+
+        internal async void ShowError(string errorText)
+        {
+            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Cryfolio.Views.Alertify(errorText));
+            System.Threading.Thread.Sleep(700);
+            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync(true);
+        }
+
 
     }
 }

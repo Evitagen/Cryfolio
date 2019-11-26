@@ -84,7 +84,7 @@ namespace Cryfolio.Models
         ///
 
         #region IDataStore<Portfolio> start
-        public async Task<Portfolio> GetPortfolioAsync(string id)
+                        public async Task<Portfolio> GetPortfolioAsync(string id)
                         {
                             //Debug.WriteLine("**** GetItemAsync");
                             var portfolio = await Portfolios.FirstOrDefaultAsync(x => x.PortfolioID.ToString() == id).ConfigureAwait(false);
@@ -155,7 +155,7 @@ namespace Cryfolio.Models
         /// <returns></returns>
         ///
 
-        #region IDataStore<Portfolio> start
+        #region IDataStore<CoinsHodle> start
         public async Task<CoinsHodle> GetCoinsHodlesAsync(string id)
         {
             //Debug.WriteLine("**** GetItemAsync");
