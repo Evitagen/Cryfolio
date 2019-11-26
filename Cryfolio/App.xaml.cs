@@ -8,12 +8,14 @@ namespace Cryfolio
     public partial class App : Application
     {
         public static Repo Repository;
+        public static Repo CoinsHodle_Repository;
 
         public App(string dbPath)
         {
             InitializeComponent();
 
             Repository = new Repo(dbPath);
+            CoinsHodle_Repository = new Repo(dbPath);
 
             MainPage = new MainPage();
         }

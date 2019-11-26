@@ -40,7 +40,7 @@ namespace Cryfolio.ViewModels
        internal async void AddPortfolio(Portfolio portfolio)
        {
             var _portfolio = portfolio as Portfolio;
-            await DataStore.AddPortfolioAsync(_portfolio);
+            await DataStore.AddItemAsync(_portfolio);
             Portfolios.Add(_portfolio);
             await ExecuteLoadPortfoliosCommand();
        }
@@ -55,7 +55,7 @@ namespace Cryfolio.ViewModels
             try
             {
                 Portfolios.Clear();
-                var items = await DataStore.GetPortfoliosAsync(true);
+                var items = await DataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
                     Portfolios.Add(item);
@@ -74,7 +74,7 @@ namespace Cryfolio.ViewModels
         internal async Task Delete_PortfolioAsync(Portfolio portfolio)
         {
             Portfolios.Remove(portfolio);
-            await DataStore.DeletePortfolioAsync(portfolio.PortfolioID);
+            await DataStore.DeleteItemAsync(portfolio.PortfolioID);
         }
 
         internal int getNewPortfolio_ID()
@@ -130,7 +130,7 @@ namespace Cryfolio.ViewModels
         internal async void AddCoinHodle(CoinsHodle coinHodle)
         {
             var _coinHodle = coinHodle as CoinsHodle;
-           // await DataStore.AddCoinHodleAsync(_coinHodle);
+            await DataStore_CoinsHodle.AddItemAsync(_coinHodle);
             CoinsHodles.Add(_coinHodle);
             await ExecuteLoadPortfoliosCommand();
         }
@@ -150,6 +150,31 @@ namespace Cryfolio.ViewModels
             }
             return blnReturn;
         }
+
+        internal int getNewCoinHodle_ID()
+        {
+            int intReturn = 0;
+
+            if (CoinsHodles.Count > 0)
+            {
+                intReturn = CoinsHodles.Max(x => x.Id);
+                intReturn++;
+            }
+
+            return intReturn;
+        }
+
+       // internal int GetCoinsHodleID(string name)
+       // {
+       //     int intReturn = 0;
+
+       //     CoinsHodle coinhodle = CoinsHodles.Single(s => s.Name == name);
+       //     if (coinhodle != null)
+       //     {
+       //         intReturn = coinhodle.Id;
+       //     }
+       //     return intReturn;
+       // }
 
 
         internal async void ShowError(string errorText)

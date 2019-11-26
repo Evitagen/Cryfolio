@@ -21,7 +21,7 @@ namespace Cryfolio.Models
 
         private object _dbPath;
 
-        public DbSet<CoinsHodle> CoinsHodles { get; set; }
+        //public DbSet<CoinsHodle> CoinsHodles { get; set; }
         public DbSet<Transactions> Transactions { get; set; }
         public DbSet<Portfolio> Portfolios { get; set; }
 
@@ -32,15 +32,7 @@ namespace Cryfolio.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Make ID property the primary key.
-            modelBuilder.Entity<CoinsHodle>()
-                .HasKey(p => p.Id);
-
-            // Coin name required
-            modelBuilder.Entity<CoinsHodle>()
-                .Property(p => p.Name)
-                .IsRequired();
-
+       
 
             // Transaction ID is Primary Key
             modelBuilder.Entity<Transactions>()
@@ -75,23 +67,15 @@ namespace Cryfolio.Models
         }
 
 
-
-        /// <summary>
-        ///                                 Portfolio
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        ///
-
         #region IDataStore<Portfolio> start
-                        public async Task<Portfolio> GetPortfolioAsync(string id)
+                        public async Task<Portfolio> GetItemAsync(string id)
                         {
                             //Debug.WriteLine("**** GetItemAsync");
                             var portfolio = await Portfolios.FirstOrDefaultAsync(x => x.PortfolioID.ToString() == id).ConfigureAwait(false);
                             return portfolio;
                         }
 
-                        public async Task<IEnumerable<Portfolio>> GetPortfoliosAsync(bool forceRefresh = false)
+                        public async Task<IEnumerable<Portfolio>> GetItemsAsync(bool forceRefresh = false)
                         {
                             //Debug.WriteLine("**** GetItemsAsync");
                             // Ignore forceRefresh for now.
@@ -99,7 +83,7 @@ namespace Cryfolio.Models
                             return allItems;
                         }
          
-                        public async Task<bool> AddPortfolioAsync(Portfolio portfolio)
+                        public async Task<bool> AddItemAsync(Portfolio portfolio)
                         {
                             //Debug.WriteLine("**** AddItemAsync");
                             await Portfolios.AddAsync(portfolio).ConfigureAwait(false);
@@ -107,7 +91,7 @@ namespace Cryfolio.Models
                             return true;
                         }
 
-                        public async Task<bool> UpdatePortfolioAsync(Portfolio portfolio)
+                        public async Task<bool> UpdateItemAsync(Portfolio portfolio)
                         {
                            try
                             {
@@ -122,7 +106,7 @@ namespace Cryfolio.Models
                             }
                         }
 
-                        public async Task<bool> DeletePortfolioAsync(int id)
+                        public async Task<bool> DeleteItemAsync(int id)
                         {
                             try
                             {
@@ -145,78 +129,6 @@ namespace Cryfolio.Models
                         }
         #endregion
 
-
-
-
-        /// <summary>
-        ///                                 CoinsHodles
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        ///
-
-        #region IDataStore<CoinsHodle> start
-        public async Task<CoinsHodle> GetCoinsHodlesAsync(string id)
-        {
-            //Debug.WriteLine("**** GetItemAsync");
-            var coinsHodle = await CoinsHodles.FirstOrDefaultAsync(x => x.Id.ToString() == id).ConfigureAwait(false);
-            return coinsHodle;
-        }
-
-        public async Task<IEnumerable<CoinsHodle>> GetCoinHodlesAsync(bool forceRefresh = false)
-        {
-            //Debug.WriteLine("**** GetItemsAsync");
-            // Ignore forceRefresh for now.
-            var allItems = await CoinsHodles.ToListAsync().ConfigureAwait(false);
-            return allItems;
-        }
-
-        public async Task<bool> AddCoinHodleAsync(CoinsHodle coinshodle)
-        {
-            //Debug.WriteLine("**** AddItemAsync");
-            await CoinsHodles.AddAsync(coinshodle).ConfigureAwait(false);
-            await SaveChangesAsync().ConfigureAwait(false);
-            return true;
-        }
-
-        public async Task<bool> UpdateCoinHodleAsync(CoinsHodle coinsHodle)
-        {
-
-            try
-            {
-                CoinsHodles.Update(coinsHodle);
-                await SaveChangesAsync().ConfigureAwait(false);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return false;
-            }
-         
-        }
-
-        public async Task<bool> DeleteCoinHodleAsync(int id)
-        {
-            try
-            {
-                var itemToRemove = CoinsHodles.FirstOrDefault(x => x.Id == id);
-                if (itemToRemove != null)
-                {
-                    CoinsHodles.Remove(itemToRemove);
-                    await SaveChangesAsync().ConfigureAwait(false);
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return false;
-            }
-          
-        }
-        #endregion
 
     }
 }   

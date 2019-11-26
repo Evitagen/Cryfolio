@@ -13,6 +13,7 @@ namespace Cryfolio.Views
         MainViewModel coins;
         String SelectedCoin_name;
         Models.Portfolio Portfolio;
+        Models.CoinsHodle CoinHodle;
 
         Models.CoinsHodle newCoin = new Models.CoinsHodle();
         bool blnAlready_Exists;
@@ -47,6 +48,12 @@ namespace Cryfolio.Views
                if (!PortfolioViewModel.Coin_Exists_In_Portfolio(SelectedCoin_name))                  // Check if coin exist in Portfolio
                {
                     Console.WriteLine(SelectedCoin_name);
+
+                    CoinHodle = new Models.CoinsHodle();
+
+                    CoinHodle.Id = PortfolioViewModel.getNewCoinHodle_ID();
+                    CoinHodle.Name = SelectedCoin_name;
+                  //  PortfolioViewModel.AddCoinHodle(CoinHodle);
                }
                else
                {
