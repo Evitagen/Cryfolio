@@ -127,11 +127,11 @@ namespace Cryfolio.ViewModels
         /// <param name="CoinsHodle"></param>
         ///
 
-        internal async void AddCoinHodle(CoinsHodle coinHodle)
+        internal async void AddCoinHodleToPortfolio(CoinsHodle coinHodle)
         {
             var _coinHodle = coinHodle as CoinsHodle;
-            await DataStore_CoinsHodle.AddItemAsync(_coinHodle);
-            CoinsHodles.Add(_coinHodle);
+            //await DataStore_CoinsHodle.AddItemAsync(coinHodle);
+            CoinsHodles.Add(coinHodle);
             await ExecuteLoadPortfoliosCommand();
         }
 

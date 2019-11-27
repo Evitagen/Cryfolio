@@ -53,7 +53,10 @@ namespace Cryfolio.Views
 
                     CoinHodle.Id = PortfolioViewModel.getNewCoinHodle_ID();
                     CoinHodle.Name = SelectedCoin_name;
-                  //  PortfolioViewModel.AddCoinHodle(CoinHodle);
+                    CoinHodle.Portfolio = Portfolio;
+                    PortfolioViewModel.AddCoinHodleToPortfolio(CoinHodle);
+
+
                }
                else
                {

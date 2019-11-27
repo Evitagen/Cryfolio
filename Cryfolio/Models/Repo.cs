@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Cryfolio.Services;
@@ -11,18 +12,18 @@ namespace Cryfolio.Models
     public class Repo : DbContext, IDataStore<Portfolio>
     {
 
-        /// <param name="dbPath">the platform specific path to the database</param>
-        public Repo(string dbPath) : base()
+        
+        public Repo(string dbPath) : base()     // <param name="dbPath">the platform specific path to the database</param>
         {
-            _dbPath = dbPath;
-            // Create database if not there. This will also ensure the data seeding will happen.
-            Database.EnsureCreated();
+            _dbPath = dbPath; 
+            Database.EnsureCreated();           // Create database if not there. This will also ensure the data seeding will happen.
         }
 
         private object _dbPath;
 
-        //public DbSet<CoinsHodle> CoinsHodles { get; set; }
-        public DbSet<Transactions> Transactions { get; set; }
+        // public DbSet<CoinsHodle> CoinsHodles { get; set; }
+        // public DbSet<Transactions> Transactions { get; set; }
+
         public DbSet<Portfolio> Portfolios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,28 +34,33 @@ namespace Cryfolio.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
        
-
             // Transaction ID is Primary Key
             modelBuilder.Entity<Transactions>()
                 .HasKey(p => p.Id);
 
 
-            // Make ID property the primary key.
+            //Make ID property the primary key.
             modelBuilder.Entity<Portfolio>()
-                .HasKey(p => p.PortfolioID);    
+                .HasKey(p => p.PortfolioID);
 
-            // Portfolio Name Required
-            modelBuilder.Entity<Portfolio>()
+            //Portfolio Name Required
+             modelBuilder.Entity<Portfolio>()
                 .Property(p => p.PortfolioName)
                 .IsRequired();
+
+            //// Make ID property the primary key.
+            //  modelBuilder.Entity<CoinsHodle>()
+            //    .HasKey(p => p.Id);
+
+            //// Coin name required
+            //  modelBuilder.Entity<CoinsHodle>()
+            //    .Property(p => p.Name)
+            //    .IsRequired();
 
 
 
             // Add some initial data when runing in debug
         #if DEBUG
-
-
-
 
             modelBuilder.Entity<Portfolio>()
                 .HasData(
@@ -62,22 +68,24 @@ namespace Cryfolio.Models
                     new Portfolio { PortfolioID = 2, PortfolioName = "Mobile" },
                     new Portfolio { PortfolioID = 3, PortfolioName = "Other" }
                 );
+
         #endif
 
         }
 
 
         #region IDataStore<Portfolio> start
+
                         public async Task<Portfolio> GetItemAsync(string id)
                         {
-                            //Debug.WriteLine("**** GetItemAsync");
+                            Debug.WriteLine("**** GetItemAsync");
                             var portfolio = await Portfolios.FirstOrDefaultAsync(x => x.PortfolioID.ToString() == id).ConfigureAwait(false);
                             return portfolio;
                         }
 
                         public async Task<IEnumerable<Portfolio>> GetItemsAsync(bool forceRefresh = false)
                         {
-                            //Debug.WriteLine("**** GetItemsAsync");
+                            Debug.WriteLine("**** GetItemsAsync");
                             // Ignore forceRefresh for now.
                             var allItems = await Portfolios.ToListAsync().ConfigureAwait(false);
                             return allItems;
@@ -85,7 +93,7 @@ namespace Cryfolio.Models
          
                         public async Task<bool> AddItemAsync(Portfolio portfolio)
                         {
-                            //Debug.WriteLine("**** AddItemAsync");
+                            Debug.WriteLine("**** AddItemAsync");
                             await Portfolios.AddAsync(portfolio).ConfigureAwait(false);
                             await SaveChangesAsync().ConfigureAwait(false);
                             return true;
@@ -127,8 +135,8 @@ namespace Cryfolio.Models
 
 
                         }
-        #endregion
 
+        #endregion
 
     }
 }   

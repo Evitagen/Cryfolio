@@ -11,7 +11,8 @@ namespace Cryfolio.ViewModels
     {
 
         public IDataStore<Portfolio> DataStore => App.Repository;
-        public IDataStore<CoinsHodle> DataStore_CoinsHodle => (Cryfolio.Services.IDataStore<Cryfolio.Models.CoinsHodle>)App.CoinsHodle_Repository;
+        // public IDataStore<CoinsHodle> DataStore_CoinsHodle => App.CoinsHodle_Repository;
+        public ICryptoRepository CryptoRepository => App.cryptoRepitory;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
