@@ -30,7 +30,7 @@
                       <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.3*"/>
                             <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="75*"/>
                             <ColumnDefinition Width="20*"/>
                             <ColumnDefinition Width="20*"/>
                             <ColumnDefinition Width="18*"/> 
@@ -45,7 +45,7 @@
 
 
    
-            <ListView ItemsSource="{Binding CoinmarketCap_Coins}" Grid.Row="2" BackgroundColor="Black">
+            <ListView ItemsSource="{Binding Portfolios}" Grid.Row="2" BackgroundColor="Black">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -55,16 +55,16 @@
                                         <Grid.ColumnDefinitions>
                                               <ColumnDefinition Width="2*"/>
                                               <ColumnDefinition Width="20*"/>
-                                              <ColumnDefinition Width="20*"/>
+                                              <ColumnDefinition Width="40*"/>
                                               <ColumnDefinition Width="20*"/>
                                               <ColumnDefinition Width="20*"/>
                                               <ColumnDefinition Width="18*"/> 
                                         </Grid.ColumnDefinitions>
 
                                                                                                
-                                        <Image Grid.Column="1" Source="{Binding imagelocation}" Aspect="AspectFit"></Image>                         
-                                        <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding name}" TextColor="WhiteSmoke"></Label>
-                                        <Label Grid.Column="3" HorizontalTextAlignment="Start" Text="{Binding price}" TextColor="WhiteSmoke"></Label>
+                                        <!--<Image Grid.Column="1" Source="{Binding imagelocation}" Aspect="AspectFit"></Image>-->                         
+                                        <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding PortfolioName}" TextColor="WhiteSmoke"></Label>
+                                        <!--<Label Grid.Column="3" HorizontalTextAlignment="Start" Text="{Binding Quantity}" TextColor="WhiteSmoke"></Label>-->
                     
                                </Grid>
 

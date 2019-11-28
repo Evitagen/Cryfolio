@@ -7,6 +7,7 @@ namespace Cryfolio.Views
 {
     public partial class Portfolio_Coins : ContentPage
     {
+        PortfolioViewModel ViewModel;
         int PortfolioID;
         AddCoin addCoin;
 
@@ -15,8 +16,19 @@ namespace Cryfolio.Views
             InitializeComponent();
             PortfolioName.Text = strPortfolioName;
             PortfolioID = intPortfolioId;
+            ViewModel = viewModel;
+
+            this.BindingContext = ViewModel = new PortfolioViewModel();
 
             addCoin = new AddCoin(viewModel, PortfolioID);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (ViewModel.Portfolios.Count == 0)
+                ViewModel.LoadItemsCommand.Execute(null);
         }
 
 
