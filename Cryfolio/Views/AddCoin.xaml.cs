@@ -64,12 +64,7 @@ namespace Cryfolio.Views
                     PortfolioViewModel.ShowError(SelectedCoin_name + " Already Exist");
                }
 
-               
-
-              
-
-
-
+  
 
             }
             catch (Exception ex)

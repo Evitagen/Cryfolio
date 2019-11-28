@@ -21,8 +21,6 @@ namespace Cryfolio.Models
 
 
 
-
-
         /// <summary>
         ///              portfolio
         /// </summary>
@@ -96,17 +94,12 @@ namespace Cryfolio.Models
             try
             {
                 var allItems = await _context.Portfolios.ToListAsync().ConfigureAwait(false);
-
                 List<Portfolio> portfolios = new List<Portfolio>();
 
                 foreach (var portfolio in allItems)
                 {
                     portfolios.Add(await GetPortfolioAsync(portfolio.PortfolioID.ToString()));
                 }
-
-                //Debug.WriteLine("**** GetPortfoliosAsync");
-                //// Ignore forceRefresh for now.
-                //var allItems = await _context.Portfolios.ToListAsync().ConfigureAwait(false);
 
                 return portfolios;
             }

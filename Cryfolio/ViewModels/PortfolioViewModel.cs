@@ -170,18 +170,6 @@ namespace Cryfolio.ViewModels
             return intReturn;
         }
 
-       // internal int GetCoinsHodleID(string name)
-       // {
-       //     int intReturn = 0;
-
-       //     CoinsHodle coinhodle = CoinsHodles.Single(s => s.Name == name);
-       //     if (coinhodle != null)
-       //     {
-       //         intReturn = coinhodle.Id;
-       //     }
-       //     return intReturn;
-       // }
-
 
         internal async void ShowError(string errorText)
         {
