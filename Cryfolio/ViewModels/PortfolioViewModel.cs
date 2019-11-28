@@ -17,6 +17,7 @@ namespace Cryfolio.ViewModels
     
         public ObservableCollection<Portfolio> Portfolios { get; set; }
         public ObservableCollection<CoinsHodle> CoinsHodles { get; set; }
+        private readonly ICryptoRepository _repo;
 
         public Command LoadItemsCommand { get; set; }
 
@@ -25,22 +26,24 @@ namespace Cryfolio.ViewModels
             Title = "Browse";
             Portfolios = new ObservableCollection<Portfolio>();
             CoinsHodles = new ObservableCollection<CoinsHodle>();
+            _repo = CryptoRepository;
             LoadItemsCommand = new Command(async () => await ExecuteLoadPortfoliosCommand());
 
-            //MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
-            //{
-            //    var _portfolio = portfolio as Portfolio;
-            //    await DataStore.AddPortfolioAsync(_portfolio);
-            //    Portfolios.Add(_portfolio);
-            //    await ExecuteLoadItemsCommand();
-            //});
+      
+        //MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
+        //{
+        //    var _portfolio = portfolio as Portfolio;
+        //    await DataStore.AddPortfolioAsync(_portfolio);
+        //    Portfolios.Add(_portfolio);
+        //    await ExecuteLoadItemsCommand();
+        //});
 
-        }
+    }
 
        internal async void AddPortfolio(Portfolio portfolio)
        {
             var _portfolio = portfolio as Portfolio;
-            await DataStore.AddItemAsync(_portfolio);
+            await _repo.AddPortfolioAsync(_portfolio);
             Portfolios.Add(_portfolio);
             await ExecuteLoadPortfoliosCommand();
        }
@@ -55,7 +58,7 @@ namespace Cryfolio.ViewModels
             try
             {
                 Portfolios.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await _repo.GetPortfoliosAsync(true);
                 foreach (var item in items)
                 {
                     Portfolios.Add(item);
@@ -74,7 +77,7 @@ namespace Cryfolio.ViewModels
         internal async Task Delete_PortfolioAsync(Portfolio portfolio)
         {
             Portfolios.Remove(portfolio);
-            await DataStore.DeleteItemAsync(portfolio.PortfolioID);
+            await _repo.DeletePortfolioAsync(portfolio.PortfolioID);
         }
 
         internal int getNewPortfolio_ID()
@@ -127,28 +130,31 @@ namespace Cryfolio.ViewModels
         /// <param name="CoinsHodle"></param>
         ///
 
-        internal async void AddCoinHodleToPortfolio(CoinsHodle coinHodle)
+        internal async void AddCoinHodleToPortfolio(CoinsHodle coinHodle, Portfolio portfolio)
         {
-            var _coinHodle = coinHodle as CoinsHodle;
-            //await DataStore_CoinsHodle.AddItemAsync(coinHodle);
             CoinsHodles.Add(coinHodle);
+            await _repo.AddCoinsHodleAsync(coinHodle);
             await ExecuteLoadPortfoliosCommand();
         }
 
 
+        internal bool Coin_Exists_In_Portfolio(Portfolio portfolio, string name)     //
+        {                                                                            // TODO: replace with linq
+            bool blnReturn = false;
 
-        internal bool Coin_Exists_In_Portfolio(string name)     //
-        {                                                       // TODO: replace with linq
-            bool blnReturn = false;                             //
-
-            foreach (var portfolio in Portfolios)
+            if (portfolio.coinsHodle != null)
             {
-                if (portfolio.PortfolioName == name)
+                foreach (var coinsHodle in portfolio.coinsHodle)
                 {
-                    blnReturn = true;
+                    if (coinsHodle.Name == name)
+                    {
+                        blnReturn = true;
+                    }
                 }
             }
+
             return blnReturn;
+
         }
 
         internal int getNewCoinHodle_ID()

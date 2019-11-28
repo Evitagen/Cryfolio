@@ -45,7 +45,7 @@ namespace Cryfolio.Views
                 //PortfolioViewModel
        
 
-               if (!PortfolioViewModel.Coin_Exists_In_Portfolio(SelectedCoin_name))                  // Check if coin exist in Portfolio
+               if (!PortfolioViewModel.Coin_Exists_In_Portfolio(Portfolio, SelectedCoin_name))                  // Check if coin exist in Portfolio
                {
                     Console.WriteLine(SelectedCoin_name);
 
@@ -54,7 +54,7 @@ namespace Cryfolio.Views
                     CoinHodle.Id = PortfolioViewModel.getNewCoinHodle_ID();
                     CoinHodle.Name = SelectedCoin_name;
                     CoinHodle.Portfolio = Portfolio;
-                    PortfolioViewModel.AddCoinHodleToPortfolio(CoinHodle);
+                    PortfolioViewModel.AddCoinHodleToPortfolio(CoinHodle, Portfolio);
 
 
                }

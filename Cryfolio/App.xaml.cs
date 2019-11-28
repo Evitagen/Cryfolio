@@ -1,5 +1,6 @@
 ﻿using System;
 using Cryfolio.Models;
+using Cryfolio.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,9 +16,10 @@ namespace Cryfolio
         {
             InitializeComponent();
 
-            Repository = new Repo(dbPath);
+            // Repository = new Repo(dbPath);
             //CoinsHodle_Repository = new Repo_CoinsHodle(dbPath);
-            cryptoRepitory = new CryptoRepository(dbPath);
+            var Dc = new DataContext(dbPath);
+            cryptoRepitory = new CryptoRepository(Dc);
 
 
             MainPage = new MainPage();

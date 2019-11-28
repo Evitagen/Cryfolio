@@ -10,7 +10,7 @@ namespace Cryfolio.ViewModels
     public class ViewModelBase : INotifyPropertyChanged
     {
 
-        public IDataStore<Portfolio> DataStore => App.Repository;
+        // public IDataStore<Portfolio> DataStore => App.Repository;
         // public IDataStore<CoinsHodle> DataStore_CoinsHodle => App.CoinsHodle_Repository;
         public ICryptoRepository CryptoRepository => App.cryptoRepitory;
 
