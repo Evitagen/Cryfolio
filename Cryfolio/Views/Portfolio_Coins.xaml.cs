@@ -9,26 +9,30 @@ namespace Cryfolio.Views
     {
         PortfolioViewModel ViewModel;
         int PortfolioID;
+        string Portfolio_Name;
         AddCoin addCoin;
 
         public Portfolio_Coins(string strPortfolioName, int intPortfolioId, PortfolioViewModel viewModel)
         {
             InitializeComponent();
             PortfolioName.Text = strPortfolioName;
+            Portfolio_Name = strPortfolioName;
             PortfolioID = intPortfolioId;
             ViewModel = viewModel;
 
             this.BindingContext = ViewModel = new PortfolioViewModel();
 
             addCoin = new AddCoin(viewModel, PortfolioID);
+
+            PopupNavigation.Instance.Popped += (sender, e) => UpdateView();     // event
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            if (ViewModel.Portfolios.Count == 0)
-                ViewModel.LoadItemsCommand.Execute(null);
+            if (ViewModel.CoinsHodles.Count == 0)
+                _ = ViewModel.ExecuteLoadPortfolioCommand(PortfolioID);
         }
 
 
@@ -37,8 +41,6 @@ namespace Cryfolio.Views
         {
             await PopupNavigation.Instance.PushAsync(addCoin);
         }
-
-
 
         void MainPage(object sender, EventArgs e)
         {
@@ -60,7 +62,10 @@ namespace Cryfolio.Views
             Navigation.PushModalAsync(new Settings());
         }
 
-     
+        private void UpdateView()
+        {
+            _ = ViewModel.ExecuteLoadPortfolioCommand(PortfolioID);
+        }
 
     }
 }

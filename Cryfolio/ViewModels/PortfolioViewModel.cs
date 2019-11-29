@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using Command = Xamarin.Forms.Command;
 using System.Linq;
+using System.Collections.Generic;
+using Models.CoinMarketPortfolio;
 
 namespace Cryfolio.ViewModels
 {
@@ -17,6 +19,8 @@ namespace Cryfolio.ViewModels
     
         public ObservableCollection<Portfolio> Portfolios { get; set; }
         public ObservableCollection<CoinsHodle> CoinsHodles { get; set; }
+        public ObservableCollection<CoinsHodlesView> CoinsHodlesViews { get; set; }
+
         private readonly ICryptoRepository _repo;
 
         public Command LoadItemsCommand { get; set; }
@@ -26,6 +30,8 @@ namespace Cryfolio.ViewModels
             Title = "Browse";
             Portfolios = new ObservableCollection<Portfolio>();
             CoinsHodles = new ObservableCollection<CoinsHodle>();
+            CoinsHodlesViews = new ObservableCollection<CoinsHodlesView>();
+
             _repo = CryptoRepository;
             LoadItemsCommand = new Command(async () => await ExecuteLoadPortfoliosCommand());
 
@@ -72,6 +78,47 @@ namespace Cryfolio.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        internal async Task ExecuteLoadPortfolioCommand(int PortfolioID)
+        {
+            string strtemp;
+
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                CoinsHodles.Clear();
+                CoinsHodlesViews.Clear();
+                var portfolio = await _repo.GetPortfolioAsync(PortfolioID.ToString());
+                foreach (var item in portfolio.coinsHodle)
+                {
+                    CoinsHodles.Add(item);
+                }
+
+                foreach (var item in CoinsHodles)
+                {
+                    var cv = new CoinsHodlesView();
+                    cv.Id = item.Id;
+                    cv.Name = item.Name;
+                    cv.Quantity = item.Quantity;
+                    strtemp = item.Name.Replace("-", "");  // removes the dash as xamarin wont allow
+                    cv.imagelocation = strtemp + ".png";
+                    CoinsHodlesViews.Add(cv);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+
         }
 
         internal async Task Delete_PortfolioAsync(Portfolio portfolio)
@@ -177,6 +224,13 @@ namespace Cryfolio.ViewModels
             System.Threading.Thread.Sleep(700);
             await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync(true);
         }
+
+
+
+
+
+
+
 
 
     }
