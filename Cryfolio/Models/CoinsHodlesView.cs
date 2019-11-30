@@ -8,6 +8,7 @@ namespace Cryfolio.Models
         public decimal Quantity { get; set; }
         public string imagelocation { get; set; }
         public decimal Total { get; set; }
+        public decimal Price { get; set; }
     }
     
 }

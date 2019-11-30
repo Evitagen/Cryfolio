@@ -107,6 +107,7 @@ namespace Cryfolio.ViewModels
                     cv.Quantity = item.Quantity;
                     strtemp = item.Name.Replace("-", "");  // removes the dash as xamarin wont allow
                     cv.imagelocation = strtemp + ".png";
+                    // cv.Price = 
                     CoinsHodlesViews.Add(cv);
                 }
             }

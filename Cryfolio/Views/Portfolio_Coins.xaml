@@ -5,7 +5,7 @@
             <RowDefinition Height="10*"/>
              <RowDefinition Height="5*"/>
              <RowDefinition Height="70*"/>
-             <RowDefinition Height="6.8*"/>
+             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
 
 
@@ -28,18 +28,20 @@
             <Grid Grid.Row="1" BackgroundColor="Black">
 
                       <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="15*"/>
                       <ColumnDefinition Width="20*"/>
-                      <ColumnDefinition Width="20*"/>
-                      <ColumnDefinition Width="20*"/>
-                      <ColumnDefinition Width="20*"/>
-                      <ColumnDefinition Width="20*"/>
+                      <ColumnDefinition Width="16*"/>
+                      <ColumnDefinition Width="16*"/>
+                      <ColumnDefinition Width="16*"/>
+                      <ColumnDefinition Width="16*"/>
                       </Grid.ColumnDefinitions>
                               
-                      <Button Grid.Column="0" Text="#" FontSize="Small" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button>
-                      <Button Grid.Column="1" Text="Coin" FontSize="Small" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button>
-                      <Button Grid.Column="2" Text="Holdings" FontSize="Small" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button>                                          
-                      <Button Grid.Column="3" Text="Total" FontSize="Small" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button>
-                      <Button Grid.Column="4" Text="Transaction" FontSize="Micro" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button>
+                      <Button Grid.Column="0" Text="#" FontSize="Micro" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button>
+                      <Button Grid.Column="1" Text="Coin" FontSize="Micro" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button>
+                      <Button Grid.Column="2" Text="Price" FontSize="Micro" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button> 
+                      <Button Grid.Column="3" Text="Holdings" FontSize="Micro" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button>                                          
+                      <Button Grid.Column="4" Text="Total" FontSize="Micro" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button>
+                      <Button Grid.Column="5" Text="Transaction" FontSize="Micro" TextColor="WhiteSmoke" BackgroundColor="#303036"></Button>
             </Grid>
 
 
@@ -53,19 +55,21 @@
 
                                         <Grid.ColumnDefinitions>
                                               <!--<ColumnDefinition Width="2*"/>-->
+                                              <ColumnDefinition Width="15*"/>
                                               <ColumnDefinition Width="20*"/>
-                                              <ColumnDefinition Width="20*"/>
-                                              <ColumnDefinition Width="20*"/>
-                                              <ColumnDefinition Width="20*"/>
-                                              <ColumnDefinition Width="20*"/>
+                                              <ColumnDefinition Width="16*"/>
+                                              <ColumnDefinition Width="16*"/>
+                                              <ColumnDefinition Width="16*"/>
+                                              <ColumnDefinition Width="16*"/>
                                         </Grid.ColumnDefinitions>
 
                                                                                                
                                         <Image Grid.Column="0" Source="{Binding imagelocation}" Aspect="AspectFit"></Image>                         
                                         <Label Grid.Column="1" HorizontalTextAlignment="Start" Text="{Binding Name}" TextColor="WhiteSmoke" TranslationY="14"></Label>
-                                        <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding Quantity}" TextColor="WhiteSmoke" TranslationY="14"></Label>
-                                        <Label Grid.Column="3" HorizontalTextAlignment="Start" Text="{Binding Total}" TextColor="WhiteSmoke" TranslationY="14"></Label>
-                                        <Button Grid.Column="4" BackgroundColor="DodgerBlue" Text="Add" TextColor="Black"></Button> 
+                                        <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding Price}" TextColor="WhiteSmoke" TranslationY="14"></Label>
+                                        <Label Grid.Column="3" HorizontalTextAlignment="Start" Text="{Binding Quantity}" TextColor="WhiteSmoke" TranslationY="14"></Label>
+                                        <Label Grid.Column="4" HorizontalTextAlignment="Start" Text="{Binding Total}" TextColor="WhiteSmoke" TranslationY="14"></Label>
+                                        <Button Grid.Column="5" BackgroundColor="DodgerBlue" Text="Add" TextColor="Black"></Button> 
 
                                </Grid>
 
