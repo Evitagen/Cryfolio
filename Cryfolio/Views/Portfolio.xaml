@@ -6,8 +6,8 @@
 
      <Grid RowSpacing="0">
         <Grid.RowDefinitions>
-             <RowDefinition Height="Auto"/>
-             <RowDefinition Height="Auto"/>
+             <RowDefinition Height="10"/>
+             <RowDefinition Height="50"/>
              <RowDefinition Height="7"/>
              <RowDefinition Height="Auto"/>
              <RowDefinition Height="50"/>

@@ -18,5 +18,19 @@ namespace Cryfolio.Views
             PortfolioViewModel = ViewModel;
             Portfolio = PortfolioViewModel.GetPortfolio(portfolioID);
         }
+
+
+        void Cancel(object sender, System.EventArgs e)
+        {
+            PopupNavigation.Instance.PopAsync(true);
+        }
+
+        void Ok(object sender, System.EventArgs e)
+        {
+            PopupNavigation.Instance.PopAsync(true);
+        }
+
+
+
     }
 }

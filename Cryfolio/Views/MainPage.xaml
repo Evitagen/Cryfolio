@@ -27,11 +27,11 @@
                                 <Grid Grid.Row="1" BackgroundColor="Black">
                                      <Grid.ColumnDefinitions>
                                       
-                                             <ColumnDefinition Width="70"/>
-                                             <ColumnDefinition Width="130"/>
-                                             <ColumnDefinition Width="60"/>
-                                             <ColumnDefinition Width="60"/>
-                                             <ColumnDefinition Width="60"/>
+                                             <ColumnDefinition Width="18*"/>
+                                             <ColumnDefinition Width="30*"/>
+                                             <ColumnDefinition Width="18*"/>
+                                             <ColumnDefinition Width="18*"/>
+                                             <ColumnDefinition Width="18*"/>
                                       </Grid.ColumnDefinitions>
                                             <Button Grid.Column="0" Clicked="Rank_Sort" Text="Rank" BackgroundColor="#303036" TextColor="WhiteSmoke"></Button>
                                             <Button Grid.Column="1" Clicked="Coin_Sort" Text="Coin" BackgroundColor="#303036" TextColor="WhiteSmoke"></Button>
@@ -55,12 +55,12 @@
                                <Grid RowSpacing="0">
 
                                         <Grid.ColumnDefinitions>
-                                             <ColumnDefinition Width="20"/>
-                                             <ColumnDefinition Width="50"/>
-                                             <ColumnDefinition Width="130"/>
-                                             <ColumnDefinition Width="60"/>
-                                             <ColumnDefinition Width="60"/>
-                                             <ColumnDefinition Width="60"/>
+                                             <ColumnDefinition Width="6*"/>
+                                             <ColumnDefinition Width="12*"/>
+                                             <ColumnDefinition Width="30*"/>
+                                             <ColumnDefinition Width="18*"/>
+                                             <ColumnDefinition Width="18*"/>
+                                             <ColumnDefinition Width="18*"/>
                                         </Grid.ColumnDefinitions>
 
                                 

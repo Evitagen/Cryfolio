@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Cryfolio.Views.Portfolio_Coins">
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-             <RowDefinition Height="5*"/>
+            <RowDefinition Height="45"/>
+             <RowDefinition Height="8"/>
+             <RowDefinition Height="35"/>
              <RowDefinition Height="70*"/>
              <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
@@ -23,9 +24,9 @@
           
             </Grid>
 
+            <BoxView BackgroundColor="Black" Grid.Row="1"></BoxView>
 
-
-            <Grid Grid.Row="1" BackgroundColor="Black">
+            <Grid Grid.Row="2" BackgroundColor="Black">
 
                       <Grid.ColumnDefinitions>
                       <ColumnDefinition Width="15*"/>
@@ -46,7 +47,7 @@
 
 
    
-            <ListView ItemsSource="{Binding CoinsHodlesViews}" Grid.Row="2" BackgroundColor="Black">
+            <ListView ItemsSource="{Binding CoinsHodlesViews}" Grid.Row="3" BackgroundColor="Black">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -81,7 +82,7 @@
 
 
 
-            <Grid Grid.Row="3" BackgroundColor="Black" Padding="0,5,0,0">
+            <Grid Grid.Row="4" BackgroundColor="Black" Padding="0,5,0,0">
                     <Grid.ColumnDefinitions>
                            <ColumnDefinition Width="25*"/>
                            <ColumnDefinition Width="25*"/>

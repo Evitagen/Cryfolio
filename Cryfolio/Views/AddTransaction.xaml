@@ -9,8 +9,8 @@
                                    EasingIn="SinOut"
                                    EasingOut="SinIn"
                                    HasBackgroundAnimation="True"
-                                   PositionIn="Center"
-                                   PositionOut="Center"
+                                   PositionIn="Top"
+                                   PositionOut="Top"
                                    ScaleIn="1.2"
                                    ScaleOut="0.8" />
     </Trans:PopupPage.Animation>
@@ -19,57 +19,120 @@
           <StackLayout Margin="12"
                  Padding="24"
                  BackgroundColor="#333333"
-                 HorizontalOptions="Center"
-                 VerticalOptions="Center">
-        <StackLayout>
+                 HorizontalOptions="Start"
+                 VerticalOptions="Start">
 
-            <Label Text="Select Buy or Sell" TextColor="WhiteSmoke" />
-            <Button BackgroundColor="#4dff88" Text="Buy" TextColor="Black"></Button>
-            <Button BackgroundColor="#ff6666" Text="Sell" TextColor="Black"></Button>
 
-            <Label Text="Quantity" TextColor="WhiteSmoke" />
-            <Entry FontSize="30"
-                   Text=""
-                   TextColor="WhiteSmoke"
-                   x:Name="Quantity"/>
+        <Grid BackgroundColor="#333333">
+            <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width="10*"/>
+                 <ColumnDefinition Width="35*"/>
+                 <ColumnDefinition Width="27.3333*"/>
+                 <ColumnDefinition Width="27.3333*"/>
+                 <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
 
-            <Label Text="Transaction fee" TextColor="WhiteSmoke" />
-            <Entry FontSize="30"
-                   Text=""
-                   TextColor="WhiteSmoke"
-                   x:Name="Fee"/>
+            <Label Grid.Column="1" Text="Select Buy or Sell" TextColor="WhiteSmoke" TranslationY="11" TranslationX="-3" />
+            <Button Grid.Column="2" BackgroundColor="#4dff88" Text="Buy" TextColor="Black"></Button>
+            <Button Grid.Column="3" BackgroundColor="#ff6666" Text="Sell" TextColor="Black"></Button>
 
-            <Label Text="Date" TextColor="WhiteSmoke" />
-            <DatePicker MinimumDate="{Binding MinDate}"
+        </Grid>
+
+
+
+         <Grid BackgroundColor="#333333">
+            <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width="10*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Text="Quantity" TextColor="WhiteSmoke" TranslationY="11" />
+            <Entry Grid.Column="2" FontSize="15" Text="" TextColor="WhiteSmoke" x:Name="Quantity"/>
+
+        </Grid>
+
+
+         <Grid BackgroundColor="#333333">
+            <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width="10*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Text="Transaction fee" TextColor="WhiteSmoke" TranslationY="11" />
+            <Entry Grid.Column="2" FontSize="15" Text="" TextColor="WhiteSmoke" x:Name="Fee"/>
+
+        </Grid>
+
+
+        <Grid BackgroundColor="#333333">
+            <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width="10*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Text="Date" TextColor="WhiteSmoke" TranslationY="11" />
+             <DatePicker Grid.Column="2" TextColor="WhiteSmoke" MinimumDate="{Binding MinDate}"
             MaximumDate="{Binding MaxDate}"
             Date="{Binding SelectedDate}" />
 
-            <Label Text="Price when bought" TextColor="WhiteSmoke" />
-            <Entry FontSize="30"
+        </Grid>
+
+
+        <Grid BackgroundColor="#333333">
+            <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width="10*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Text="Time" TextColor="WhiteSmoke" TranslationY="11" />
+            <TimePicker Grid.Column="2" TextColor="WhiteSmoke" Time="{Binding SelectedTime}" />
+
+        </Grid>
+
+
+        <Grid BackgroundColor="#333333">
+            <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width="10*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Grid.Column="1" Text="Price bought" TextColor="WhiteSmoke" TranslationY="11" />
+            <Entry Grid.Column="2" FontSize="15"
                    Text=""
                    TextColor="WhiteSmoke"
                    x:Name="PriceBought"/>
 
-        </StackLayout>
-      
-
-        <Grid BackgroundColor="#333333">
-                                      <Grid.ColumnDefinitions>
-                                             <!--<ColumnDefinition Width="10*"/>-->
-                                             <ColumnDefinition Width="50*"/>
-                                             <ColumnDefinition Width="50*"/>
-                                           <!--<ColumnDefinition Width="10*"/>-->
-                                      </Grid.ColumnDefinitions>
-                            
-                                      <StackLayout Grid.Column="0">
-                                             <Button BackgroundColor="#4dff88" Text="Ok" TextColor="Black"></Button>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="1">
-                                            <Button BackgroundColor="#ff6666" Text="Cancel" TextColor="Black"></Button>
-                                      </StackLayout>
-
-             
         </Grid>
+
+
+
+
+    
+        <Grid BackgroundColor="#333333">
+             <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="10*"/>
+                  <ColumnDefinition Width="50*"/>
+                  <ColumnDefinition Width="50*"/>
+                  <ColumnDefinition Width="10*"/>
+             </Grid.ColumnDefinitions>
+                                                         
+               <Button Grid.Column="1" Clicked="Ok" BackgroundColor="#4dff88" Text="Ok" TextColor="Black"></Button>                                                                  
+               <Button Grid.Column="2" Clicked="Cancel" BackgroundColor="#ff6666" Text="Cancel" TextColor="Black"></Button>
+                       
+        </Grid>
+
+
 
 
     </StackLayout>      
