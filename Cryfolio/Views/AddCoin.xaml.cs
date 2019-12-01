@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Cryfolio.ViewModels;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
-using Models.CoinMarketPortfolio;
 
 namespace Cryfolio.Views
 {

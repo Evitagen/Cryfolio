@@ -11,6 +11,7 @@ namespace Cryfolio.Views
         int PortfolioID;
         string Portfolio_Name;
         AddCoin addCoin;
+        AddTransaction addTransaction;
 
         public Portfolio_Coins(string strPortfolioName, int intPortfolioId, PortfolioViewModel viewModel)
         {
@@ -23,6 +24,7 @@ namespace Cryfolio.Views
             this.BindingContext = ViewModel = new PortfolioViewModel();
 
             addCoin = new AddCoin(viewModel, PortfolioID);
+            addTransaction = new AddTransaction(viewModel, PortfolioID);
 
             PopupNavigation.Instance.Popped += (sender, e) => UpdateView();     // event
         }
@@ -41,6 +43,24 @@ namespace Cryfolio.Views
         {
             await PopupNavigation.Instance.PushAsync(addCoin);
         }
+
+        async void Add_Transaction(object sender, EventArgs e)
+        {
+            await PopupNavigation.Instance.PushAsync(addTransaction);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         void MainPage(object sender, EventArgs e)
         {

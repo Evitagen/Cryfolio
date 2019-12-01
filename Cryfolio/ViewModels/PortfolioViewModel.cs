@@ -10,6 +10,7 @@ using Command = Xamarin.Forms.Command;
 using System.Linq;
 using System.Collections.Generic;
 using Models.CoinMarketPortfolio;
+using System.Timers;
 
 namespace Cryfolio.ViewModels
 {
@@ -22,6 +23,8 @@ namespace Cryfolio.ViewModels
         public ObservableCollection<CoinsHodlesView> CoinsHodlesViews { get; set; }
 
         private readonly ICryptoRepository _repo;
+        private static System.Timers.Timer aTimer;
+        private int portfolioID = 0;
 
         public Command LoadItemsCommand { get; set; }
 
@@ -32,19 +35,24 @@ namespace Cryfolio.ViewModels
             CoinsHodles = new ObservableCollection<CoinsHodle>();
             CoinsHodlesViews = new ObservableCollection<CoinsHodlesView>();
 
+        
+            UpdatePrices();
+            aTimer = new System.Timers.Timer(120000);  // every 120 seconds 2 min 
+            Timer();
+
             _repo = CryptoRepository;
             LoadItemsCommand = new Command(async () => await ExecuteLoadPortfoliosCommand());
 
-      
-        //MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
-        //{
-        //    var _portfolio = portfolio as Portfolio;
-        //    await DataStore.AddPortfolioAsync(_portfolio);
-        //    Portfolios.Add(_portfolio);
-        //    await ExecuteLoadItemsCommand();
-        //});
 
-    }
+            //MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
+            //{
+            //    var _portfolio = portfolio as Portfolio;
+            //    await DataStore.AddPortfolioAsync(_portfolio);
+            //    Portfolios.Add(_portfolio);
+            //    await ExecuteLoadItemsCommand();
+            //});
+
+        }
 
        internal async void AddPortfolio(Portfolio portfolio)
        {
@@ -82,6 +90,7 @@ namespace Cryfolio.ViewModels
 
         internal async Task ExecuteLoadPortfolioCommand(int PortfolioID)
         {
+            portfolioID = PortfolioID;
             string strtemp;
 
             if (IsBusy)
@@ -107,7 +116,7 @@ namespace Cryfolio.ViewModels
                     cv.Quantity = item.Quantity;
                     strtemp = item.Name.Replace("-", "");  // removes the dash as xamarin wont allow
                     cv.imagelocation = strtemp + ".png";
-                    // cv.Price = 
+                    cv.Price = getCoinPrice(item.Name);
                     CoinsHodlesViews.Add(cv);
                 }
             }
@@ -230,7 +239,53 @@ namespace Cryfolio.ViewModels
 
 
 
+        /// <summary>
+        ///  CoinMarketCap coins
+        /// </summary>
+        ///
 
+        public void UpdatePrices()
+        {
+            var services = new CoinList();
+            CoinmarketCap_Coins = services.GetCoinPrices().Result;
+        }
+
+        private decimal getCoinPrice(string strCoin)
+        {
+            Decimal decReturn = 0;
+
+            foreach (var item in coinmarketCap_Coins)
+            {
+                if (strCoin == item.name)
+                {
+                    decReturn = (decimal)item.price;
+                }
+            }
+
+            return decReturn;
+        }
+
+
+        private List<Coins> coinmarketCap_Coins;
+
+        public List<Coins> CoinmarketCap_Coins
+        {
+            get { return coinmarketCap_Coins; }
+            set { SetProperty(ref coinmarketCap_Coins, value); }
+        }
+
+        private void Timer()
+        {
+            aTimer.Elapsed += OnTimedEvent;
+            aTimer.AutoReset = true;
+            aTimer.Enabled = true;
+        }
+
+        private async void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            UpdatePrices();
+            await ExecuteLoadPortfolioCommand(portfolioID);
+        }
 
 
 
