@@ -12,6 +12,7 @@ namespace Cryfolio.Views
         string Portfolio_Name;
         AddCoin addCoin;
         AddTransaction addTransaction;
+        Models.CoinsHodle CoinHodle;
 
         public Portfolio_Coins(string strPortfolioName, int intPortfolioId, PortfolioViewModel viewModel)
         {
@@ -24,7 +25,7 @@ namespace Cryfolio.Views
             this.BindingContext = ViewModel = new PortfolioViewModel();
 
             addCoin = new AddCoin(viewModel, PortfolioID);
-            addTransaction = new AddTransaction(viewModel, PortfolioID);
+            
 
             PopupNavigation.Instance.Popped += (sender, e) => UpdateView();     // event
         }
@@ -46,17 +47,25 @@ namespace Cryfolio.Views
 
         async void Add_Transaction(object sender, EventArgs e)
         {
+
+            // get coin clicked on
+            Button button = (Button)sender;
+            var imt = (Grid)button.Parent;
+            var c1 = (Label)imt.Children[1];
+            var name = c1.Text;
+
+            foreach (var item in ViewModel.CoinsHodles)
+            {
+                if (item.Name == name)
+                {
+                    CoinHodle = item;
+                }
+            }
+
+            addTransaction = new AddTransaction(ViewModel, PortfolioID, CoinHodle);
+
             await PopupNavigation.Instance.PushAsync(addTransaction);
         }
-
-
-
-
-
-
-
-
-
 
 
 

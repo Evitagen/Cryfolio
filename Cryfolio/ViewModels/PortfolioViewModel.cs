@@ -21,6 +21,10 @@ namespace Cryfolio.ViewModels
         public ObservableCollection<Portfolio> Portfolios { get; set; }
         public ObservableCollection<CoinsHodle> CoinsHodles { get; set; }
         public ObservableCollection<CoinsHodlesView> CoinsHodlesViews { get; set; }
+        public ObservableCollection<Transactions> Transactions { get; set; }
+
+        public DateTime SelectedDate { get; set; }
+        public DateTime SelectedTime { get; set; }
 
         private readonly ICryptoRepository _repo;
         private static System.Timers.Timer aTimer;
@@ -34,8 +38,11 @@ namespace Cryfolio.ViewModels
             Portfolios = new ObservableCollection<Portfolio>();
             CoinsHodles = new ObservableCollection<CoinsHodle>();
             CoinsHodlesViews = new ObservableCollection<CoinsHodlesView>();
+            Transactions = new ObservableCollection<Transactions>();
 
-        
+            SelectedDate = DateTime.Now;
+            SelectedTime = DateTime.Now;
+
             UpdatePrices();
             aTimer = new System.Timers.Timer(120000);  // every 120 seconds 2 min 
             Timer();
@@ -287,6 +294,52 @@ namespace Cryfolio.ViewModels
             await ExecuteLoadPortfolioCommand(portfolioID);
         }
 
+
+
+
+        ///
+        ///  Transactions
+        ///
+        ///
+        ///
+        ///
+
+        internal string ValidateTransaction_Form(string Quantity, string TransactionFee, string PriceBought)
+        {
+            string strErrorReturn = "";
+
+
+            // Quantity
+            if (Quantity.Length == 0)
+            {
+                strErrorReturn = "Enter an amount for quantity";
+            }
+
+            //if (decimal.Parse(Quantity) <= 0)
+            //{
+            //    strErrorReturn = "Quantity must be a positive number";
+            //}
+
+            // Transaction Fee
+            if (TransactionFee.Length == 0)
+            {
+                strErrorReturn = "Enter an amount for Transaction Fee";
+            }
+
+            // Price Bought
+            if (PriceBought.Length == 0)
+            {
+                strErrorReturn = "Enter an amount for price bought";
+            }
+
+            //if (decimal.Parse(PriceBought) <= 0)
+            //{
+            //    strErrorReturn = "Price bought must be a positive number";
+            //}
+
+
+            return strErrorReturn;
+        }
 
 
     }

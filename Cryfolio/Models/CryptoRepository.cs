@@ -21,11 +21,11 @@ namespace Cryfolio.Models
 
 
 
-        /// <summary>
-        ///              portfolio
-        /// </summary>
-        /// <param name="portfolio"></param>
-        /// <returns></returns>
+        /// 
+        ///  portfolio
+        /// 
+        /// 
+        /// 
         ///
 
         public async Task<bool> AddPortfolioAsync(Portfolio portfolio)
@@ -114,15 +114,11 @@ namespace Cryfolio.Models
 
 
 
-
-
-
-
-        /// <summary>
-        ///             coinshodle
-        /// </summary>
-        /// <param name="coinshodle"></param>
-        /// <returns></returns>
+        /// 
+        /// coinshodle          
+        /// 
+        /// 
+        /// 
         ///
 
         public async Task<bool> AddCoinsHodleAsync(CoinsHodle coinshodle)
@@ -158,6 +154,61 @@ namespace Cryfolio.Models
             return coinsHodles;             
         }
 
+
+
+
+
+        ///
+        /// Transactions
+        ///
+        ///
+
+        public async Task<bool> AddTransactionAsync(Transactions transactions)
+        {
+            Debug.WriteLine("**** AddTransactionAsync");
+            await _context.Transactions.AddAsync(transactions).ConfigureAwait(false);
+            await _context.SaveChangesAsync().ConfigureAwait(false);
+            return true;
+        }
+
+        public Task<bool> UpdateTransactionAsync(CoinsHodle item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeleteTransactionAsync(int id)
+        {
+            try
+            {
+                var TransactionToRemove = _context.Transactions.FirstOrDefault(x => x.Id == id);
+                if (TransactionToRemove != null)
+                {
+                    _context.Transactions.Remove(TransactionToRemove);
+                    await _context.SaveChangesAsync().ConfigureAwait(false);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
+
+        public async Task<Transactions> GetTransactionAsync(string id)
+        {
+            Debug.WriteLine("**** GetTransactionAsync");
+            var transaction = await _context.Transactions.FirstOrDefaultAsync(x => x.Id.ToString() == id).ConfigureAwait(false);
+            return transaction;
+        }
+
+        public async Task<IEnumerable<Transactions>> GetTransactionsAsync(bool forceRefresh = false)
+        {
+            Debug.WriteLine("**** GetTransactionsAsync");
+            // Ignore forceRefresh for now.
+            var transactions = await _context.Transactions.ToListAsync().ConfigureAwait(false);
+            return transactions;
+        }
 
 
     }
