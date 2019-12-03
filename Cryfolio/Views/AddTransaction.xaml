@@ -23,23 +23,44 @@
                  VerticalOptions="Start">
 
 
+
+
+
+
+        <!--Coin Image and Name-->
         <Grid BackgroundColor="#333333">
             <Grid.ColumnDefinitions>
                  <ColumnDefinition Width="10*"/>
-                 <ColumnDefinition Width="35*"/>
-                 <ColumnDefinition Width="27.3333*"/>
-                 <ColumnDefinition Width="27.3333*"/>
+                 <ColumnDefinition Width="20*"/>
+                 <ColumnDefinition Width="60*"/>
                  <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="1" Text="Select Buy or Sell" TextColor="WhiteSmoke" TranslationY="11" TranslationX="-3" />
-            <Button Grid.Column="2" BackgroundColor="#4dff88" Text="Buy" TextColor="Black"></Button>
-            <Button Grid.Column="3" BackgroundColor="#ff6666" Text="Sell" TextColor="Black"></Button>
+            <Image Grid.Column="1" x:Name="CoinImage" Aspect="AspectFit"></Image> 
+            <Label Grid.Column="2" x:Name="CoinName" TextColor="WhiteSmoke"/>
+     
 
         </Grid>
 
 
 
+        <!--Buy / Sell-->
+        <Grid BackgroundColor="#333333">
+            <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width="10*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Label Grid.Column="1" Text="Select Buy or Sell" TextColor="WhiteSmoke" TranslationY="11" TranslationX="-3" />-->
+            <Button Grid.Column="1" BackgroundColor="#4dff88" Text="Buy" TextColor="Black"></Button>
+            <Button Grid.Column="2" BackgroundColor="Black" Text="Sell" TextColor="WhiteSmoke"></Button>
+
+        </Grid>
+
+
+         <!--Quantity-->
          <Grid BackgroundColor="#333333">
             <Grid.ColumnDefinitions>
                  <ColumnDefinition Width="10*"/>
@@ -93,7 +114,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="1" Text="Time" TextColor="WhiteSmoke" TranslationY="11" />
-            <TimePicker Grid.Column="2" TextColor="WhiteSmoke" Time="{Binding SelectedDate}" />
+            <TimePicker Grid.Column="2" TextColor="WhiteSmoke" x:Name="_timePicker"/>
 
         </Grid>
 

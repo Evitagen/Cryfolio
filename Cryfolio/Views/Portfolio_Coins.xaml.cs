@@ -54,6 +54,9 @@ namespace Cryfolio.Views
             var c1 = (Label)imt.Children[1];
             var name = c1.Text;
 
+            var c2 = (Label)imt.Children[2];
+            var price = c2.Text;
+
             foreach (var item in ViewModel.CoinsHodles)
             {
                 if (item.Name == name)
@@ -62,7 +65,7 @@ namespace Cryfolio.Views
                 }
             }
 
-            addTransaction = new AddTransaction(ViewModel, PortfolioID, CoinHodle);
+            addTransaction = new AddTransaction(ViewModel, PortfolioID, CoinHodle, price);
 
             await PopupNavigation.Instance.PushAsync(addTransaction);
         }

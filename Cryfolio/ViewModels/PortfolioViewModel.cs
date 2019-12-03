@@ -24,7 +24,6 @@ namespace Cryfolio.ViewModels
         public ObservableCollection<Transactions> Transactions { get; set; }
 
         public DateTime SelectedDate { get; set; }
-        public DateTime SelectedTime { get; set; }
 
         private readonly ICryptoRepository _repo;
         private static System.Timers.Timer aTimer;
@@ -41,7 +40,6 @@ namespace Cryfolio.ViewModels
             Transactions = new ObservableCollection<Transactions>();
 
             SelectedDate = DateTime.Now;
-            SelectedTime = DateTime.Now;
 
             UpdatePrices();
             aTimer = new System.Timers.Timer(120000);  // every 120 seconds 2 min 
@@ -304,6 +302,8 @@ namespace Cryfolio.ViewModels
         ///
         ///
 
+
+        // Validation
         internal string ValidateTransaction_Form(string Quantity, string TransactionFee, string PriceBought)
         {
             string strErrorReturn = "";
@@ -312,7 +312,7 @@ namespace Cryfolio.ViewModels
             // Quantity
             if (Quantity.Length == 0)
             {
-                strErrorReturn = "Enter an amount for quantity";
+                strErrorReturn = "Enter an amount for quantity " + System.Environment.NewLine;
             }
 
             //if (decimal.Parse(Quantity) <= 0)
@@ -323,13 +323,13 @@ namespace Cryfolio.ViewModels
             // Transaction Fee
             if (TransactionFee.Length == 0)
             {
-                strErrorReturn = "Enter an amount for Transaction Fee";
+                strErrorReturn = "Enter an amount for Transaction Fee " + System.Environment.NewLine;
             }
 
             // Price Bought
             if (PriceBought.Length == 0)
             {
-                strErrorReturn = "Enter an amount for price bought";
+                strErrorReturn = "Enter an amount for price bought " + System.Environment.NewLine;
             }
 
             //if (decimal.Parse(PriceBought) <= 0)
@@ -340,6 +340,28 @@ namespace Cryfolio.ViewModels
 
             return strErrorReturn;
         }
+
+        internal bool AddTransaction(string Quantity, string Fee, string PriceBought, DateTime datetime)
+        {
+            bool blnReturn = false;
+
+            var Transaction = new Models.Transactions();
+
+            //CoinHodle.Id = PortfolioViewModel.getNewCoinHodle_ID();
+            //CoinHodle.Name = SelectedCoin_name;
+            //CoinHodle.Portfolio = Portfolio;
+            //PortfolioViewModel.AddCoinHodleToPortfolio(CoinHodle, Portfolio);
+
+
+            // add all transactions associated with that coin in that portfolio then update total
+            // for that coin in portfolio
+
+
+            return blnReturn;
+        }
+
+
+
 
 
     }

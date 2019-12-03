@@ -13,15 +13,24 @@ namespace Cryfolio.Views
         PortfolioViewModel PortfolioViewModel;
         Models.Portfolio Portfolio;
         Models.Transactions Transaction;
+        DateTime Transaction_DateTime;
 
-        public AddTransaction(PortfolioViewModel ViewModel, int portfolioID, CoinsHodle coinsHodle)
+
+        public AddTransaction(PortfolioViewModel ViewModel, int portfolioID, CoinsHodle coinsHodle, string price)
         {
             InitializeComponent();
             _coinsHodle = coinsHodle;
+
             PortfolioViewModel = ViewModel;
             Portfolio = PortfolioViewModel.GetPortfolio(portfolioID);
 
             this.BindingContext = PortfolioViewModel = new PortfolioViewModel();
+
+            string strtemp = coinsHodle.Name.Replace("-", "");
+
+            CoinName.Text = coinsHodle.Name;
+            CoinImage.Source = strtemp + ".png";
+            PriceBought.Text = price;
         }
 
 
@@ -34,37 +43,20 @@ namespace Cryfolio.Views
         {
             // validate all fields are fitted in
 
-      
-
             string strError = PortfolioViewModel.ValidateTransaction_Form(Quantity.Text, Fee.Text, PriceBought.Text);
-
-            Console.WriteLine(PortfolioViewModel.SelectedDate);
-            // Console.WriteLine(PortfolioViewModel.SelectedTime);
-            // add transaction
-
-
+            Transaction_DateTime = PortfolioViewModel.SelectedDate + _timePicker.Time;
+            Console.WriteLine(Transaction_DateTime);
+                  
             if (strError.Length > 0)
             {
-                // show popup error
+                PortfolioViewModel.ShowError(strError);
             }
             else
             {
-                Transaction = new Models.Transactions();
-
-
-                //CoinHodle.Id = PortfolioViewModel.getNewCoinHodle_ID();
-                //CoinHodle.Name = SelectedCoin_name;
-                //CoinHodle.Portfolio = Portfolio;
-                //PortfolioViewModel.AddCoinHodleToPortfolio(CoinHodle, Portfolio);
-
+                PortfolioViewModel.AddTransaction(Quantity.Text, Fee.Text, PriceBought.Text, Transaction_DateTime);   // add transaction
             }
 
-
-
-
-
             // add up all transactions and update CoinsHodle
-
             PopupNavigation.Instance.PopAsync(true);
         }
 
