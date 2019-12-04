@@ -16,7 +16,7 @@
     </Trans:PopupPage.Animation>
 
    
-          <StackLayout Margin="12"
+          <StackLayout x:Name="Background" Margin="12"
                  Padding="24"
                  BackgroundColor="#333333"
                  HorizontalOptions="Start"
@@ -28,16 +28,16 @@
 
 
         <!--Coin Image and Name-->
-        <Grid BackgroundColor="#333333">
+        <Grid x:Name="coin" BackgroundColor="#333333">
             <Grid.ColumnDefinitions>
                  <ColumnDefinition Width="10*"/>
-                 <ColumnDefinition Width="20*"/>
-                 <ColumnDefinition Width="60*"/>
+                 <ColumnDefinition Width="12*"/>
+                 <ColumnDefinition Width="68*"/>
                  <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="1" x:Name="CoinImage" Aspect="AspectFit"></Image> 
-            <Label Grid.Column="2" x:Name="CoinName" TextColor="WhiteSmoke"/>
+            <Image Grid.Column="1" x:Name="CoinImage" Aspect="AspectFit" HorizontalOptions="Start"></Image> 
+            <Label Grid.Column="2" x:Name="CoinName" TextColor="WhiteSmoke" HorizontalOptions="Start" TranslationY="8"/>
      
 
         </Grid>
@@ -45,23 +45,28 @@
 
 
         <!--Buy / Sell-->
-        <Grid BackgroundColor="#333333">
+        <Grid x:Name="BuySell" BackgroundColor="#333333">
             <Grid.ColumnDefinitions>
                  <ColumnDefinition Width="10*"/>
                  <ColumnDefinition Width="50*"/>
-                 <ColumnDefinition Width="50*"/>
+                 <ColumnDefinition Width="25*"/>
+                 <ColumnDefinition Width="25*"/>
                  <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
 
-            <!--<Label Grid.Column="1" Text="Select Buy or Sell" TextColor="WhiteSmoke" TranslationY="11" TranslationX="-3" />-->
-            <Button Grid.Column="1" BackgroundColor="#4dff88" Text="Buy" TextColor="Black"></Button>
-            <Button Grid.Column="2" BackgroundColor="Black" Text="Sell" TextColor="WhiteSmoke"></Button>
+             <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="lblBuySell" Grid.Row="0" Grid.Column="1" Text="Select Buy or Sell" TextColor="WhiteSmoke" TranslationY="8"/>
+            <Button x:Name="btnBuy" Grid.Column="2" Grid.Row="0" Clicked="Buy" BackgroundColor="#999999" Text="Buy" VerticalOptions="Center" TextColor="Black"></Button>
+            <Button x:Name="btnSell" Grid.Column="3" Grid.Row="0" Clicked="Sell" BackgroundColor="#999999" Text="Sell" TextColor="black"></Button>
 
         </Grid>
 
 
          <!--Quantity-->
-         <Grid BackgroundColor="#333333">
+         <Grid x:Name="gridQuantity" BackgroundColor="#333333">
             <Grid.ColumnDefinitions>
                  <ColumnDefinition Width="10*"/>
                  <ColumnDefinition Width="50*"/>
@@ -69,13 +74,13 @@
                  <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="1" Text="Quantity" TextColor="WhiteSmoke" TranslationY="11" />
-            <Entry Grid.Column="2" FontSize="15" Text="0" TextColor="WhiteSmoke" x:Name="Quantity"/>
+            <Label x:Name="lblQuantity" Grid.Column="1" Text="Quantity" TextColor="WhiteSmoke" TranslationY="11" />
+            <Entry Grid.Column="2" FontSize="15" TextColor="WhiteSmoke" x:Name="Quantity"/>
 
         </Grid>
 
-
-         <Grid BackgroundColor="#333333">
+         <!--Transaction Fees-->
+         <Grid x:Name="TransactionFee" BackgroundColor="#333333">
             <Grid.ColumnDefinitions>
                  <ColumnDefinition Width="10*"/>
                  <ColumnDefinition Width="50*"/>
@@ -83,13 +88,13 @@
                  <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="1" Text="Transaction fee" TextColor="WhiteSmoke" TranslationY="11" />
+            <Label x:Name="lblFee" Grid.Column="1" Text="Transaction fee" TextColor="WhiteSmoke" TranslationY="11" />
             <Entry Grid.Column="2" FontSize="15" Text="0" TextColor="WhiteSmoke" x:Name="Fee"/>
 
         </Grid>
 
-
-        <Grid BackgroundColor="#333333">
+        <!--Date-->
+        <Grid x:Name="Date" BackgroundColor="#333333">
             <Grid.ColumnDefinitions>
                  <ColumnDefinition Width="10*"/>
                  <ColumnDefinition Width="50*"/>
@@ -97,15 +102,15 @@
                  <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="1" Text="Date" TextColor="WhiteSmoke" TranslationY="11" />
+            <Label x:Name="lblDate" Grid.Column="1" Text="Date" TextColor="WhiteSmoke" TranslationY="11" />
              <DatePicker Grid.Column="2" TextColor="WhiteSmoke" MinimumDate="{Binding MinDate}"
             MaximumDate="{Binding MaxDate}"
             Date="{Binding SelectedDate}" DateSelected="OnDateSelected"/>
 
         </Grid>
 
-
-        <Grid BackgroundColor="#333333">
+        <!--Time-->
+        <Grid x:Name="Time" BackgroundColor="#333333">
             <Grid.ColumnDefinitions>
                  <ColumnDefinition Width="10*"/>
                  <ColumnDefinition Width="50*"/>
@@ -113,13 +118,14 @@
                  <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="1" Text="Time" TextColor="WhiteSmoke" TranslationY="11" />
+            <Label x:Name="lblTime" Grid.Column="1" Text="Time" TextColor="WhiteSmoke" TranslationY="11" />
             <TimePicker Grid.Column="2" TextColor="WhiteSmoke" x:Name="_timePicker"/>
 
         </Grid>
 
 
-        <Grid BackgroundColor="#333333">
+        <!--Price Bought-->
+        <Grid x:Name="gridPriceBought" BackgroundColor="#333333">
             <Grid.ColumnDefinitions>
                  <ColumnDefinition Width="10*"/>
                  <ColumnDefinition Width="50*"/>
@@ -128,7 +134,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <Label Grid.Column="1" Text="Price bought" TextColor="WhiteSmoke" TranslationY="11" />
+            <Label x:Name="lblPriceBought" Grid.Column="1" Text="Price bought" TextColor="WhiteSmoke" TranslationY="11" />
             <Entry Grid.Column="2" FontSize="15"
                    Text=""
                    TextColor="WhiteSmoke"
@@ -138,9 +144,8 @@
 
 
 
-
-    
-        <Grid BackgroundColor="#333333">
+        <!--Ok Cancel-->
+        <Grid x:Name="OkCancel" BackgroundColor="#333333">
              <Grid.ColumnDefinitions>
                   <ColumnDefinition Width="10*"/>
                   <ColumnDefinition Width="50*"/>

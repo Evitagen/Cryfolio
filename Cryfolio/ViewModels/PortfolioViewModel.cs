@@ -24,6 +24,7 @@ namespace Cryfolio.ViewModels
         public ObservableCollection<Transactions> Transactions { get; set; }
 
         public DateTime SelectedDate { get; set; }
+        public bool Buy { get; set; }
 
         private readonly ICryptoRepository _repo;
         private static System.Timers.Timer aTimer;
@@ -40,6 +41,7 @@ namespace Cryfolio.ViewModels
             Transactions = new ObservableCollection<Transactions>();
 
             SelectedDate = DateTime.Now;
+       
 
             UpdatePrices();
             aTimer = new System.Timers.Timer(120000);  // every 120 seconds 2 min 
@@ -306,40 +308,94 @@ namespace Cryfolio.ViewModels
         // Validation
         internal string ValidateTransaction_Form(string Quantity, string TransactionFee, string PriceBought)
         {
+
+
             string strErrorReturn = "";
 
 
             // Quantity
-            if (Quantity.Length == 0)
+            if (Quantity == null)
             {
                 strErrorReturn = "Enter an amount for quantity " + System.Environment.NewLine;
             }
+            else
+            {
+                decimal value;
+                if (Decimal.TryParse(Quantity, out value)) // It's a decimal
+                {
+                    if (decimal.Parse(Quantity) <= 0)
+                    {
+                        strErrorReturn = "Quantity must be a positive number";
+                    }
+                }
+                else
+                {
+                    strErrorReturn = "must be a number";
+                }
+            }
 
-            //if (decimal.Parse(Quantity) <= 0)
-            //{
-            //    strErrorReturn = "Quantity must be a positive number";
-            //}
 
-            // Transaction Fee
-            if (TransactionFee.Length == 0)
+            // Transaction
+
+            if (TransactionFee == null)
             {
                 strErrorReturn = "Enter an amount for Transaction Fee " + System.Environment.NewLine;
             }
-
-            // Price Bought
-            if (PriceBought.Length == 0)
+            else
             {
-                strErrorReturn = "Enter an amount for price bought " + System.Environment.NewLine;
+                decimal value;
+                if (Decimal.TryParse(TransactionFee, out value)) // It's a decimal
+                {
+                    if (decimal.Parse(TransactionFee) < 0)
+                    {
+                        strErrorReturn = "Transaction Fee must not be negative";
+                    }
+                }
+                else
+                {
+                    strErrorReturn = "Transaction Fee must be a number";
+                }
             }
 
-            //if (decimal.Parse(PriceBought) <= 0)
-            //{
-            //    strErrorReturn = "Price bought must be a positive number";
-            //}
 
+            // Price Bought
+
+            if (PriceBought == null)
+            {
+                strErrorReturn = "Enter an amount for Price Bought " + System.Environment.NewLine;
+            }
+            else
+            {
+                decimal value;
+                if (Decimal.TryParse(PriceBought, out value)) // It's a decimal
+                {
+                    if (decimal.Parse(PriceBought) <= 0)
+                    {
+                        strErrorReturn = "Price Bought must be a positive number";
+                    }
+                }
+                else
+                {
+                    strErrorReturn = "Price Bought must be a number";
+                }
+            }
 
             return strErrorReturn;
         }
+
+        internal int getNewTransaction_ID()
+        {
+            int intReturn = 0;
+
+            if (Transactions.Count > 0)
+            {
+                intReturn = Transactions.Max(x => x.Id);
+                intReturn++;
+            }
+
+            return intReturn;
+        }
+
 
         internal bool AddTransaction(string Quantity, string Fee, string PriceBought, DateTime datetime)
         {
@@ -347,9 +403,23 @@ namespace Cryfolio.ViewModels
 
             var Transaction = new Models.Transactions();
 
-            //CoinHodle.Id = PortfolioViewModel.getNewCoinHodle_ID();
-            //CoinHodle.Name = SelectedCoin_name;
-            //CoinHodle.Portfolio = Portfolio;
+            Transaction.Id = getNewTransaction_ID();
+
+            if (Buy)
+            {
+                Transaction.AmountBuy = Decimal.Parse(Quantity);
+            }
+            else
+            {
+                Transaction.AmountSell = Decimal.Parse(Quantity);
+            }
+
+            Transaction.Date = datetime;
+            Transaction.TransactionFee = Decimal.Parse(Fee);
+            Transaction.PriceBought = Decimal.Parse(PriceBought);
+           
+
+     
             //PortfolioViewModel.AddCoinHodleToPortfolio(CoinHodle, Portfolio);
 
 
@@ -360,7 +430,13 @@ namespace Cryfolio.ViewModels
             return blnReturn;
         }
 
-
+        internal async void AddTransactionToDb(Transactions transacton)
+        {
+            Transactions.Add(transacton);
+            await _repo.AddTransactionAsync(transacton);
+            // 
+            await ExecuteLoadPortfoliosCommand(); // update loadportfolios to add up transactions and update
+        }
 
 
 

@@ -31,6 +31,8 @@ namespace Cryfolio.Views
             CoinName.Text = coinsHodle.Name;
             CoinImage.Source = strtemp + ".png";
             PriceBought.Text = price;
+
+            Buy();
         }
 
 
@@ -43,21 +45,29 @@ namespace Cryfolio.Views
         {
             // validate all fields are fitted in
 
-            string strError = PortfolioViewModel.ValidateTransaction_Form(Quantity.Text, Fee.Text, PriceBought.Text);
-            Transaction_DateTime = PortfolioViewModel.SelectedDate + _timePicker.Time;
-            Console.WriteLine(Transaction_DateTime);
-                  
-            if (strError.Length > 0)
+            try
             {
-                PortfolioViewModel.ShowError(strError);
-            }
-            else
-            {
-                PortfolioViewModel.AddTransaction(Quantity.Text, Fee.Text, PriceBought.Text, Transaction_DateTime);   // add transaction
-            }
+                string strError = PortfolioViewModel.ValidateTransaction_Form(Quantity.Text, Fee.Text, PriceBought.Text);
+                Transaction_DateTime = PortfolioViewModel.SelectedDate + _timePicker.Time;
+                Console.WriteLine(Transaction_DateTime);
 
-            // add up all transactions and update CoinsHodle
-            PopupNavigation.Instance.PopAsync(true);
+                if (strError.Length > 0)
+                {
+                    PortfolioViewModel.ShowError(strError);
+                }
+                else
+                {
+                    PortfolioViewModel.AddTransaction(Quantity.Text, Fee.Text, PriceBought.Text, Transaction_DateTime);   // add transaction
+                }
+
+                // add up all transactions and update CoinsHodle
+                PopupNavigation.Instance.PopAsync(true);
+            }
+            catch (Exception ex)
+            {
+                PortfolioViewModel.ShowError(ex.ToString());
+            }
+         
         }
 
 
@@ -68,6 +78,64 @@ namespace Cryfolio.Views
            
         }
 
-  
+       
+
+        ColorTypeConverter converter = new ColorTypeConverter();
+
+        void Buy(object sender, System.EventArgs e)
+        {
+            Buy();
+        }
+
+        void Sell(object sender, System.EventArgs e)
+        {
+            PortfolioViewModel.Buy = false;
+
+            Background.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#1a0000"));
+            coin.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#1a0000"));
+            BuySell.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#1a0000"));
+            gridQuantity.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#1a0000"));
+            TransactionFee.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#1a0000"));
+            Date.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#1a0000"));
+            Time.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#1a0000"));
+            gridPriceBought.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#1a0000"));
+            OkCancel.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#001a00"));
+
+            btnSell.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#ff6666"));
+            btnBuy.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#999999"));
+            lblBuySell.TextColor = (Color)(converter.ConvertFromInvariantString("#ff6666"));
+            lblQuantity.TextColor = (Color)(converter.ConvertFromInvariantString("#ff6666"));
+            lblFee.TextColor = (Color)(converter.ConvertFromInvariantString("#ff6666"));
+            lblDate.TextColor = (Color)(converter.ConvertFromInvariantString("#ff6666"));
+            lblTime.TextColor = (Color)(converter.ConvertFromInvariantString("#ff6666"));
+            lblPriceBought.TextColor = (Color)(converter.ConvertFromInvariantString("#ff6666"));
+
+        }
+
+        void Buy()
+        {
+            PortfolioViewModel.Buy = true;
+
+            Background.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#001a00"));
+            coin.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#001a00"));
+            BuySell.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#001a00"));
+            gridQuantity.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#001a00"));
+            TransactionFee.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#001a00"));
+            Date.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#001a00"));
+            Time.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#001a00"));
+            gridPriceBought.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#001a00"));
+            OkCancel.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#001a00"));
+
+            btnBuy.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#4dff88"));
+            btnSell.BackgroundColor = (Color)(converter.ConvertFromInvariantString("#999999"));
+            lblBuySell.TextColor = (Color)(converter.ConvertFromInvariantString("#4dff88"));
+            lblQuantity.TextColor = (Color)(converter.ConvertFromInvariantString("#4dff88"));
+            lblFee.TextColor = (Color)(converter.ConvertFromInvariantString("#4dff88"));
+            lblDate.TextColor = (Color)(converter.ConvertFromInvariantString("#4dff88"));
+            lblTime.TextColor = (Color)(converter.ConvertFromInvariantString("#4dff88"));
+            lblPriceBought.TextColor = (Color)(converter.ConvertFromInvariantString("#4dff88"));
+        }
+
+
     }
 }
