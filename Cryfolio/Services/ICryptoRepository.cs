@@ -21,6 +21,7 @@ namespace Cryfolio.Services
             Task<IEnumerable<CoinsHodle>> GetCoinsHodlesAsync(bool forceRefresh = false);
 
             Task<bool> AddTransactionAsync(Transactions transactions);
+            Task<IEnumerable<Transactions>> GetTransactionsAsync(bool forceRefresh = false);
 
     }
 

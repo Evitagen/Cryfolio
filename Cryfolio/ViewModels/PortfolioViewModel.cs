@@ -121,6 +121,9 @@ namespace Cryfolio.ViewModels
                     cv.Id = item.Id;
                     cv.Name = item.Name;
                     cv.Quantity = item.Quantity;
+
+                  //  cv.Total = 
+
                     strtemp = item.Name.Replace("-", "");  // removes the dash as xamarin wont allow
                     cv.imagelocation = strtemp + ".png";
                     cv.Price = getCoinPrice(item.Name);
@@ -397,9 +400,9 @@ namespace Cryfolio.ViewModels
         }
 
 
-        internal bool AddTransaction(string Quantity, string Fee, string PriceBought, DateTime datetime)
+         internal async void AddTransaction(Portfolio portfolio, CoinsHodle coinsHodle, string Quantity, string Fee, string PriceBought, DateTime datetime)
         {
-            bool blnReturn = false;
+     
 
             var Transaction = new Models.Transactions();
 
@@ -417,27 +420,88 @@ namespace Cryfolio.ViewModels
             Transaction.Date = datetime;
             Transaction.TransactionFee = Decimal.Parse(Fee);
             Transaction.PriceBought = Decimal.Parse(PriceBought);
+            Transaction.CoinsHodle = coinsHodle;
+
+            AddTransactionToDb(Transaction, portfolio, coinsHodle);
+
+
+            await ExecuteLoadPortfolioCommand(portfolio.PortfolioID); // update loadportfolios May need to change to LoadPortfolios
            
-
-     
-            //PortfolioViewModel.AddCoinHodleToPortfolio(CoinHodle, Portfolio);
-
-
-            // add all transactions associated with that coin in that portfolio then update total
-            // for that coin in portfolio
-
-
-            return blnReturn;
         }
 
-        internal async void AddTransactionToDb(Transactions transacton)
+        internal async void AddTransactionToDb(Transactions transacton, Portfolio Portfolio, CoinsHodle coinsHodle)
         {
             Transactions.Add(transacton);
-            await _repo.AddTransactionAsync(transacton);
-            // 
-            await ExecuteLoadPortfoliosCommand(); // update loadportfolios to add up transactions and update
+            await _repo.AddTransactionAsync(transacton);                // adds transaction to db
+
+            ExecuteLoadTransactionsForPortfolio(Portfolio, coinsHodle); // gets all transactions in current portfolio
+
+            
+            decimal total = 0;
+            foreach (var transaction in coinsHodle.Transactions)        // loop through all transactions for that coin in
+            {
+                if (transaction.AmountBuy > 0)
+                {
+                    total += transaction.AmountBuy;
+                }
+                if (transaction.AmountSell > 0)
+                {
+                    total -= transaction.AmountSell;
+                }
+            }
+
+            coinsHodle.Quantity = total;
+
+            await _repo.UpdateCoinsHodleAsync(coinsHodle);              // updates total of all transactions combined to coinsHodle
+
+           
+            // RecalcTotals(coinHodle)
+
         }
 
+
+        internal decimal RecalcTotal(CoinsHodle coinsHodle)
+        {
+            decimal decReturn = 0;
+
+            // get qty
+            // get coin price
+
+            // qty * price
+
+
+            return decReturn;
+        }
+
+        internal async Task ExecuteLoadTransactionsForPortfolio(Portfolio Portfolio, CoinsHodle coinsHodle)
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                Transactions.Clear();
+                var trans = await _repo.GetTransactionsAsync(true);
+                foreach (var tran in trans)
+                {
+                    if (tran.CoinsHodle == coinsHodle) //  && (coinsHodle.Portfolio == Portfolio)
+                    {
+                        Transactions.Add(tran);
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
 
 
     }

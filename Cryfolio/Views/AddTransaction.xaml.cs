@@ -14,6 +14,7 @@ namespace Cryfolio.Views
         Models.Portfolio Portfolio;
         Models.Transactions Transaction;
         DateTime Transaction_DateTime;
+        int PortfolioID;
 
 
         public AddTransaction(PortfolioViewModel ViewModel, int portfolioID, CoinsHodle coinsHodle, string price)
@@ -22,7 +23,10 @@ namespace Cryfolio.Views
             _coinsHodle = coinsHodle;
 
             PortfolioViewModel = ViewModel;
+            _ = PortfolioViewModel.ExecuteLoadPortfoliosCommand();
+
             Portfolio = PortfolioViewModel.GetPortfolio(portfolioID);
+            PortfolioID = portfolioID;
 
             this.BindingContext = PortfolioViewModel = new PortfolioViewModel();
 
@@ -57,7 +61,7 @@ namespace Cryfolio.Views
                 }
                 else
                 {
-                    PortfolioViewModel.AddTransaction(Quantity.Text, Fee.Text, PriceBought.Text, Transaction_DateTime);   // add transaction
+                    PortfolioViewModel.AddTransaction(Portfolio, _coinsHodle, Quantity.Text, Fee.Text, PriceBought.Text, Transaction_DateTime);   // add transaction
                 }
 
                 // add up all transactions and update CoinsHodle

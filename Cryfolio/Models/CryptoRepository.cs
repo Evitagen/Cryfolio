@@ -123,15 +123,26 @@ namespace Cryfolio.Models
 
         public async Task<bool> AddCoinsHodleAsync(CoinsHodle coinshodle)
         {
-            Debug.WriteLine("**** AddItemAsync");
+            Debug.WriteLine("**** AddCoinsHodleAsync");
             await _context.CoinsHodles.AddAsync(coinshodle).ConfigureAwait(false);
             await _context.SaveChangesAsync().ConfigureAwait(false);
             return true;
         }
 
-        public Task<bool> UpdateCoinsHodleAsync(CoinsHodle item)
+        public async Task<bool> UpdateCoinsHodleAsync(CoinsHodle coinhodle)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine("**** UpdateCoinsHodleAsync");
+            try
+            {
+                _context.CoinsHodles.Update(coinhodle);
+                await _context.SaveChangesAsync().ConfigureAwait(false);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
         }
 
         public Task<bool> DeleteCoinsHodleAsync(int id)
