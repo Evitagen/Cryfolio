@@ -64,12 +64,12 @@
                                         </Grid.ColumnDefinitions>
 
                                 
-                                            <Label Grid.Column="0" Text="{Binding CoinMcapRank}" TextColor="WhiteSmoke" TranslationY="14" TranslationX="8"></Label>
+                                            <Label Grid.Column="0" Text="{Binding CoinMcapRank}" TextColor="WhiteSmoke" FontSize="Small" TranslationY="14" TranslationX="8"></Label>
                                             <Image Grid.Column="1" Source="{Binding imagelocation}" Aspect="AspectFit"></Image>
-                                            <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding name}" TextColor="WhiteSmoke" TranslationY="14"></Label>
-                                            <Label Grid.Column="3" HorizontalTextAlignment="Start" Text="{Binding price}" TextColor="WhiteSmoke" TranslationY="14"></Label>
-                                            <Label Grid.Column="4" HorizontalTextAlignment="Start" Text="{Binding PercentChange24hr}" TranslationY="14" TextColor="{Binding PercentChange24hrColor}"></Label>
-                                            <Label Grid.Column="5" HorizontalTextAlignment="Start" Text="{Binding PercentChange7day}" TranslationY="14" TextColor="{Binding PercentChange7dayColor}"></Label>
+                                            <Label Grid.Column="2" HorizontalTextAlignment="Start" Text="{Binding name}" TextColor="WhiteSmoke" FontSize="Small" TranslationY="14"></Label>
+                                            <Label Grid.Column="3" HorizontalTextAlignment="Start" Text="{Binding price}" TextColor="WhiteSmoke" FontSize="Small" TranslationY="14"></Label>
+                                            <Label Grid.Column="4" HorizontalTextAlignment="Start" Text="{Binding PercentChange24hr}" TranslationY="14" FontSize="Small" TextColor="{Binding PercentChange24hrColor}"></Label>
+                                            <Label Grid.Column="5" HorizontalTextAlignment="Start" Text="{Binding PercentChange7day}" TranslationY="14" FontSize="Small" TextColor="{Binding PercentChange7dayColor}"></Label>
 
                                </Grid>
 

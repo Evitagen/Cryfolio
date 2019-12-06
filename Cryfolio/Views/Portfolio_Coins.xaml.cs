@@ -18,12 +18,13 @@ namespace Cryfolio.Views
         {
             InitializeComponent();
             PortfolioName.Text = strPortfolioName;
+            
             Portfolio_Name = strPortfolioName;
             PortfolioID = intPortfolioId;
             ViewModel = viewModel;
 
             this.BindingContext = ViewModel = new PortfolioViewModel();
-
+           
             addCoin = new AddCoin(viewModel, PortfolioID);
             
 
@@ -36,6 +37,7 @@ namespace Cryfolio.Views
 
             if (ViewModel.CoinsHodles.Count == 0)
                 _ = ViewModel.ExecuteLoadPortfolioCommand(PortfolioID);
+                Total.Text = "$" + ViewModel.Total.ToString();
         }
 
 
@@ -97,6 +99,7 @@ namespace Cryfolio.Views
         private void UpdateView()
         {
             _ = ViewModel.ExecuteLoadPortfolioCommand(PortfolioID);
+            Total.Text = "$" + ViewModel.Total.ToString();
         }
 
     }

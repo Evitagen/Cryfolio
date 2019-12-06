@@ -25,6 +25,7 @@ namespace Cryfolio.ViewModels
 
         public DateTime SelectedDate { get; set; }
         public bool Buy { get; set; }
+        public decimal Total { get; set; }
 
         private readonly ICryptoRepository _repo;
         private static System.Timers.Timer aTimer;
@@ -121,9 +122,7 @@ namespace Cryfolio.ViewModels
                     cv.Id = item.Id;
                     cv.Name = item.Name;
                     cv.Quantity = item.Quantity;
-
-                  //  cv.Total = 
-
+                    cv.Total = RecalcTotal(item, getCoinPrice(item.Name));
                     strtemp = item.Name.Replace("-", "");  // removes the dash as xamarin wont allow
                     cv.imagelocation = strtemp + ".png";
                     cv.Price = getCoinPrice(item.Name);
@@ -136,6 +135,7 @@ namespace Cryfolio.ViewModels
             }
             finally
             {
+                GetTotalPortfolioValue();
                 IsBusy = false;
             }
 
@@ -188,6 +188,16 @@ namespace Cryfolio.ViewModels
             return (Portfolio)result;
         }
 
+        internal void GetTotalPortfolioValue()
+        {
+            Total = 0;
+         
+            foreach (var item in CoinsHodlesViews)
+            {
+                Total += item.Total;
+            }
+
+        }
 
 
 
@@ -460,16 +470,10 @@ namespace Cryfolio.ViewModels
         }
 
 
-        internal decimal RecalcTotal(CoinsHodle coinsHodle)
+        internal decimal RecalcTotal(CoinsHodle coinsHodle, decimal coinPrice)
         {
             decimal decReturn = 0;
-
-            // get qty
-            // get coin price
-
-            // qty * price
-
-
+            decReturn = coinsHodle.Quantity * coinPrice;
             return decReturn;
         }
 
@@ -489,8 +493,7 @@ namespace Cryfolio.ViewModels
                     if (tran.CoinsHodle == coinsHodle) //  && (coinsHodle.Portfolio == Portfolio)
                     {
                         Transactions.Add(tran);
-                    }
-                   
+                    }             
                 }
             }
             catch (Exception ex)

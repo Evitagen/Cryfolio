@@ -3,6 +3,7 @@
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
+             <RowDefinition Height="30"/>
              <RowDefinition Height="8"/>
              <RowDefinition Height="35"/>
              <RowDefinition Height="70*"/>
@@ -24,9 +25,23 @@
           
             </Grid>
 
-            <BoxView BackgroundColor="Black" Grid.Row="1"></BoxView>
+            <Grid Grid.Row="1" BackgroundColor="Black">
 
-            <Grid Grid.Row="2" BackgroundColor="Black">
+                      <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="50"/>
+                      </Grid.ColumnDefinitions>
+                              
+                      <Label Grid.Column="1" Text="Total Value" TextColor="WhiteSmoke" BackgroundColor="Black" VerticalTextAlignment="Center"></Label>
+                      <Label Grid.Column="2" x:Name="Total" TextColor="WhiteSmoke" BackgroundColor="Black" VerticalTextAlignment="Center"></Label>
+                     
+            </Grid>
+
+            <BoxView BackgroundColor="Black" Grid.Row="2"></BoxView>
+
+            <Grid Grid.Row="3" BackgroundColor="Black">
 
                       <Grid.ColumnDefinitions>
                       <ColumnDefinition Width="15*"/>
@@ -47,7 +62,7 @@
 
 
    
-            <ListView ItemsSource="{Binding CoinsHodlesViews}" Grid.Row="3" BackgroundColor="Black">
+            <ListView ItemsSource="{Binding CoinsHodlesViews}" Grid.Row="4" BackgroundColor="Black">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -82,7 +97,7 @@
 
 
 
-            <Grid Grid.Row="4" BackgroundColor="Black" Padding="0,5,0,0">
+            <Grid Grid.Row="5" BackgroundColor="Black" Padding="0,5,0,0">
                     <Grid.ColumnDefinitions>
                            <ColumnDefinition Width="25*"/>
                            <ColumnDefinition Width="25*"/>
