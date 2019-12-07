@@ -6,52 +6,31 @@
 
 
 
-     <Grid RowSpacing="0">
+     <Grid RowSpacing="0" BackgroundColor="Black">
 
     
 
-      <Grid RowSpacing="0">
+    
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+             <RowDefinition Height="50"/>
              <RowDefinition Height="Auto"/>
              <RowDefinition Height="*"/>
              <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
 
-            <BoxView BackgroundColor="Black" Grid.Row="0"></BoxView>
-         <!--<BoxView BackgroundColor="Black" Grid.Row="1"></BoxView>-->
+         <BoxView BackgroundColor="Black" Grid.Row="0"></BoxView>
 
-                                <Grid Grid.Row="1" BackgroundColor="Black">
-                                     <Grid.ColumnDefinitions>
-                                             <ColumnDefinition Width="20"/>
-                                             <ColumnDefinition Width="50"/>
-                                             <ColumnDefinition Width="130"/>
-                                             <ColumnDefinition Width="60"/>
-                                             <ColumnDefinition Width="60"/>
-                                             <ColumnDefinition Width="60"/>
-                                      </Grid.ColumnDefinitions>
-
-                                  
-                                      <StackLayout Grid.Column="2">
-                                             <Label Text="Coin" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="3">
-                                            <Label Text="Price" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="4">
-                                            <Label Text="% 24hr" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
-                                      <StackLayout Grid.Column="5">
-                                            <Label Text="% 7day" TextDecorations="Underline" TextColor="WhiteSmoke" TranslationY="-8"></Label>
-                                      </StackLayout>
-                                </Grid>
+         <Grid Grid.Row="1" BackgroundColor="Black" HorizontalOptions="Center">
+              <Button BackgroundColor="DodgerBlue" Text="Add Alert" TextColor="Black"></Button>                                        
+         </Grid>
+        
 
 
 
 
-                  <ListView ItemsSource="{Binding CoinmarketCap_Coins}" Grid.Row="3" BackgroundColor="Black">
+                  <ListView ItemsSource="{Binding AlertsList}" Grid.Row="3" BackgroundColor="Black">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -87,7 +66,7 @@
                                       </StackLayout>
                   </Grid>
 
-         </Grid>
+        
 
 
           </Grid>
