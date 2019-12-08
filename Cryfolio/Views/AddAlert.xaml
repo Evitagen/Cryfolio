@@ -24,7 +24,7 @@
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
         <StackLayout>
-            <Label Text="Enter Portfolio Name" TextColor="WhiteSmoke" />
+            <Label Text="Add Alert" TextColor="WhiteSmoke" />
             <Entry FontSize="30"
                    Text=""
                    TextColor="WhiteSmoke"

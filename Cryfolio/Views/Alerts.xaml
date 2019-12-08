@@ -23,7 +23,7 @@
          <BoxView BackgroundColor="Black" Grid.Row="0"></BoxView>
 
          <Grid Grid.Row="1" BackgroundColor="Black" HorizontalOptions="Center">
-              <Button BackgroundColor="DodgerBlue" Text="Add Alert" TextColor="Black"></Button>                                        
+              <Button Clicked="AddAlert" BackgroundColor="DodgerBlue" Text="Add Alert" TextColor="Black"></Button>                                        
          </Grid>
         
 
