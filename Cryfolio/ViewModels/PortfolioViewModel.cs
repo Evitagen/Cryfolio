@@ -98,7 +98,7 @@ namespace Cryfolio.ViewModels
 
         internal async Task ExecuteLoadPortfolioCommand(int PortfolioID)
         {
-            portfolioID = PortfolioID;
+            //portfolioID = PortfolioID;
             string strtemp;
 
             if (IsBusy)

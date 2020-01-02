@@ -10,6 +10,7 @@ namespace Cryfolio.Views
     {
 
         PortfolioViewModel viewModel;
+        AllPortfolioViewModel viewModel_AllPortfolio;
         NewPortfolio newPortfolio;
         bool blnErrorShown;
          
@@ -89,7 +90,7 @@ namespace Cryfolio.Views
                 var name = c1.Text;
                 var id = viewModel.GetPortfolioID(name);
 
-                Navigation.PushModalAsync(new Portfolio_Coins(name, id, viewModel));
+                _ = Navigation.PushModalAsync(new Portfolio_Coins(name, id, viewModel));
 
             }
             catch (Exception ex)
@@ -101,6 +102,10 @@ namespace Cryfolio.Views
 
         }
 
+        private async void showAllPortfolio(object o, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new All_Portfolio_Coins(viewModel_AllPortfolio));
+        }
 
 
         // Navigation

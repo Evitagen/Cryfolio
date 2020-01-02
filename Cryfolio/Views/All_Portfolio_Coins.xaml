@@ -15,13 +15,13 @@
 
                       <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10*"/>
-                            <ColumnDefinition Width="40*"/>
-                            <ColumnDefinition Width="40*"/>
-                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="10"/>
                       </Grid.ColumnDefinitions>
                               
-                      <Label Grid.Column="1" x:Name="AllPortfolioName" TextColor="WhiteSmoke" BackgroundColor="Black" VerticalTextAlignment="Center"></Label>
+                      <!--<Label Grid.Column="1" x:Name="AllPortfolioName" TextColor="WhiteSmoke" BackgroundColor="Black" VerticalTextAlignment="Center" FontSize="Header"></Label>-->
                       <!--<Button Grid.Column="2" Clicked="AddCoin" BackgroundColor="DodgerBlue" Text="Add Coins" TextColor="Black" VerticalOptions="Center"></Button>-->
+                      <Label Grid.Column="1" Text="All Portfolios Combined" TextColor="WhiteSmoke" BackgroundColor="Black" VerticalTextAlignment="Center" FontSize="Medium"></Label>
           
             </Grid>
 
@@ -62,7 +62,7 @@
 
 
    
-            <ListView ItemsSource="{Binding CoinsHodlesViews}" Grid.Row="4" BackgroundColor="Black">
+            <ListView ItemsSource="{Binding AllCoinsHodlesViews}" Grid.Row="4" BackgroundColor="Black">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
