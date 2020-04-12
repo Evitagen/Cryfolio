@@ -13,3 +13,5 @@ Adding a portfolio
 Adding a Transaction
 --------------------
 
+
+![pixel 2 transaction](https://user-images.githubusercontent.com/9416798/79080658-bd781880-7d0e-11ea-863e-560d60c8c04a.gif)
