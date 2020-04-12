@@ -15,3 +15,9 @@ Adding a Transaction
 
 
 ![pixel 2 transaction](https://user-images.githubusercontent.com/9416798/79080658-bd781880-7d0e-11ea-863e-560d60c8c04a.gif)
+
+
+landscape view
+--------------
+
+<img width="787" alt="Screenshot 2020-04-12 at 22 55 58" src="https://user-images.githubusercontent.com/9416798/79080924-d681c900-7d10-11ea-88e6-9779f0520d63.png">
