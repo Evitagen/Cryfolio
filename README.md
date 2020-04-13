@@ -3,7 +3,17 @@ Xamarin Crypto Currency portfolio application.
 
 A lightweight Add free mobile cryptocurrency portfolio tracker that stores all your cryptocurrency portfolios on your anddroid/IOS device and allows you to add many different portfolios, View each one individually or view all portfolios at once and see the prices and combined total value of all held.
 
+
+
+Viewing Cryptocurrencys
+-----------------------
+
+![Untitled](https://user-images.githubusercontent.com/9416798/79139527-61fd6780-7dae-11ea-9039-79ec631da3b7.gif)
+
+
 coin prices can be sorted by best performing in the last 7 days, 24 hours, coin name, price or coin ranking. All screens can be viewed in both portrait and landscape.
+
+
 
 Adding a portfolio
 ------------------
