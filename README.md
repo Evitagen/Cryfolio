@@ -42,6 +42,17 @@ Adding a Buy Transaction
 
 click 'add' next to the coin you want to buy, click on buy and type an amount then you can set the date, time and then click ok
 
+Adding a Sell Transaction
+-------------------------
+
+![sell transaction](https://user-images.githubusercontent.com/9416798/79147277-9af00900-7dbb-11ea-885b-791125fbac0c.gif)
+
+
+View all Portfolios
+-------------------
+
+![view all](https://user-images.githubusercontent.com/9416798/79147335-b4915080-7dbb-11ea-9048-5df7589bc26f.gif)
+
 
 landscape view
 --------------
