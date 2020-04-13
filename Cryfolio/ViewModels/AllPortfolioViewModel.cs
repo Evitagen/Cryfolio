@@ -186,7 +186,7 @@ namespace Cryfolio.ViewModels
         {
             decimal decReturn = 0;
             decReturn = coinsHodle.Quantity * coinPrice;
-            return decReturn;
+            return Math.Round(decReturn, 2);
         }
 
         private List<Coins> coinmarketCap_Coins;
