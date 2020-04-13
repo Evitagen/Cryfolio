@@ -53,10 +53,17 @@ View all Portfolios
 
 ![view all](https://user-images.githubusercontent.com/9416798/79147335-b4915080-7dbb-11ea-9048-5df7589bc26f.gif)
 
+this totals all coins from all portfolios.
 
-landscape view
---------------
+
+landscape views
+---------------
 
 <img width="787" alt="Screenshot 2020-04-12 at 22 55 58" src="https://user-images.githubusercontent.com/9416798/79080924-d681c900-7d10-11ea-88e6-9779f0520d63.png">
+
+<img width="791" alt="Screenshot 2020-04-13 at 19 22 41" src="https://user-images.githubusercontent.com/9416798/79148014-c1627400-7dbc-11ea-9cf7-986b41aef991.png">
+
+<img width="788" alt="Screenshot 2020-04-13 at 19 22 03" src="https://user-images.githubusercontent.com/9416798/79148016-c1fb0a80-7dbc-11ea-8d18-a1e430264fc9.png">
+
 
 
