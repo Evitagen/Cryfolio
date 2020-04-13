@@ -1,7 +1,7 @@
 # Cryfolio
 Xamarin Crypto Currency portfolio application.
 
-A lite weight Add free mobile cryptocurrency portfolio tracker that stores all your cryptocurrency portfolios on your anddroid/IOS device and allows you to add many different portfolios, View each one individually or view all portfolios at once and see the prices and combined total value of all held.
+A lightweight Add free mobile cryptocurrency portfolio tracker that stores all your cryptocurrency portfolios on your anddroid/IOS device and allows you to add many different portfolios, View each one individually or view all portfolios at once and see the prices and combined total value of all held.
 
 coin prices can be sorted by best performing in the last 7 days, 24 hours, coin name, price or coin ranking. All screens can be viewed in both portrait and landscape.
 
