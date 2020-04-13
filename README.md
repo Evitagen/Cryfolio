@@ -18,9 +18,8 @@ coin prices can be sorted by best performing in the last 7 days, 24 hours, coin 
 Adding a portfolio
 ------------------
 
-![pixel 2](https://user-images.githubusercontent.com/9416798/79080462-f616f280-7d0c-11ea-8510-1632af7acf48.gif)
 
-on the portfolio screen you can add another coin by clicking add coin and you can scroll down and select the coin you want to add.
+![Add portfolio](https://user-images.githubusercontent.com/9416798/79142900-2cf41380-7db4-11ea-810c-854ecab767b0.gif)
 
 
 Adding a Transaction
