@@ -14,11 +14,12 @@
 
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="2"/>
+             <RowDefinition Height="35"/>   <!--this should be 2 on android-->
              <RowDefinition Height="40"/>
              <RowDefinition Height="4"/>
              <RowDefinition Height="70*"/>
              <RowDefinition Height="50"/>
+             <RowDefinition Height="20"/>   <!--this needed for iphone-->
          </Grid.RowDefinitions>
 
             <BoxView BackgroundColor="Black" Grid.Row="0"></BoxView>

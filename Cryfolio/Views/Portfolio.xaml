@@ -6,11 +6,11 @@
 
      <Grid RowSpacing="0">
         <Grid.RowDefinitions>
-             <RowDefinition Height="10"/>
+             <RowDefinition Height="40"/>  <!--10 on android-->
              <RowDefinition Height="50"/>
              <RowDefinition Height="7"/>
              <RowDefinition Height="Auto"/>
-             <RowDefinition Height="50"/>
+             <RowDefinition Height="70"/>   <!--50 on android-->
          </Grid.RowDefinitions>
 
 

@@ -44,9 +44,10 @@ namespace Cryfolio.Services
                         coin.price = (double)Math.Round(Convert.ToDecimal(coin.price), 2);   // 2 decimal
                     }
 
-                    
-                    
-                    strtemp = coin.name.Replace("-", "");                                    // removes the dash as xamarin wont allow
+
+
+                //strtemp = coin.name.Replace("-", "");                                    // removes the dash as xamarin wont allow
+                strtemp = coin.name;
                     coin.imagelocation = strtemp + ".png";
 
                     ///
