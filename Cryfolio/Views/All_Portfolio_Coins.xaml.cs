@@ -58,21 +58,25 @@ namespace Cryfolio.Views
 
         void MainPage(object sender, EventArgs e)
         {
+            ViewModel.stopTimerUpdate();
             Navigation.PushModalAsync(new MainPage());
         }
 
         void Portfolio(object sender, EventArgs e)
         {
+            ViewModel.stopTimerUpdate();
             Navigation.PushModalAsync(new Portfolio());
         }
 
         void Alerts(object sender, EventArgs e)
         {
+            ViewModel.stopTimerUpdate();
             Navigation.PushModalAsync(new Alerts());
         }
 
         void Settings(object sender, EventArgs e)
         {
+            ViewModel.stopTimerUpdate();
             Navigation.PushModalAsync(new Settings());
         }
 

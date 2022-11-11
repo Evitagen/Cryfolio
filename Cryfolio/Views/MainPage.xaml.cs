@@ -22,16 +22,19 @@ namespace Cryfolio
 
         void Portfolio(object sender, EventArgs e)
         {
+            coins.stopCoinsUpdate();
             Navigation.PushModalAsync(new Portfolio());
         }
 
         void Alerts(object sender, EventArgs e)
         {
+            coins.stopCoinsUpdate();
             Navigation.PushModalAsync(new Alerts());
         }
 
         void Settings(object sender, EventArgs e)
         {
+            coins.stopCoinsUpdate();
             Navigation.PushModalAsync(new Settings());
         }
 

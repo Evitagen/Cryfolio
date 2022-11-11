@@ -14,12 +14,18 @@ namespace Cryfolio.Services
         public async Task<List<Coins>> GetCoinPrices()
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("https://cryfolio.azurewebsites.net/api/coins").ConfigureAwait(false);
+            //var response = await client.GetStringAsync("https://cryfolio.azurewebsites.net/api/coins").ConfigureAwait(false);
+            //var response = await client.GetStringAsync("https://localhost:44351/coin").ConfigureAwait(false);
+            var response = await client.GetStringAsync("https://buildblocksbigger.com/api/coins").ConfigureAwait(false);
+
+
+
             client.Dispose();
 
             var coins = JsonConvert.DeserializeObject<List<Coins>>(response.ToString());
             var coinsFormated = new List<Coins>();
             string strtemp;
+            string strtemp2;
 
 
               foreach (var coin in coins)
@@ -45,9 +51,12 @@ namespace Cryfolio.Services
                     }
 
 
+                strtemp2 = coin.ImageUrl;
 
-                //strtemp = coin.name.Replace("-", "");                                    // removes the dash as xamarin wont allow
-                strtemp = coin.name;
+
+            //strtemp = coin.name.Replace("-", "");                                    // removes the dash as xamarin wont allow
+            strtemp = coin.name;
+
                     coin.imagelocation = strtemp + ".png";
 
                     ///

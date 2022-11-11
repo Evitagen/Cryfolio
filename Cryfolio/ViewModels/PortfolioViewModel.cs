@@ -28,8 +28,8 @@ namespace Cryfolio.ViewModels
         public decimal Total { get; set; }
 
         private readonly ICryptoRepository _repo;
-        private static System.Timers.Timer aTimer;
-        private int portfolioID = 0;
+        private static System.Timers.Timer portfolioTimer;
+        private static int portfolioID = 0;
 
         public Command LoadItemsCommand { get; set; }
 
@@ -40,35 +40,37 @@ namespace Cryfolio.ViewModels
             CoinsHodles = new ObservableCollection<CoinsHodle>();
             CoinsHodlesViews = new ObservableCollection<CoinsHodlesView>();
             Transactions = new ObservableCollection<Transactions>();
-
             SelectedDate = DateTime.Now;
        
-
             UpdatePrices();
-            aTimer = new System.Timers.Timer(120000);  // every 120 seconds 2 min 
-            Timer();
-
+            if (portfolioTimer == null)
+            {
+                portfolioTimer = new System.Timers.Timer(5000);  // every 5 seconds
+                Timer();
+            }
+            else
+            {
+                portfolioTimer.Start();
+            }
+    
             _repo = CryptoRepository;
             LoadItemsCommand = new Command(async () => await ExecuteLoadPortfoliosCommand());
-
-
-            //MessagingCenter.Subscribe<Views.NewPortfolio, Portfolio>(this, "AddItem", async (obj, portfolio) =>
-            //{
-            //    var _portfolio = portfolio as Portfolio;
-            //    await DataStore.AddPortfolioAsync(_portfolio);
-            //    Portfolios.Add(_portfolio);
-            //    await ExecuteLoadItemsCommand();
-            //});
-
         }
 
-       internal async void AddPortfolio(Portfolio portfolio)
-       {
-            var _portfolio = portfolio as Portfolio;
-            await _repo.AddPortfolioAsync(_portfolio);
-            Portfolios.Add(_portfolio);
-            await ExecuteLoadPortfoliosCommand();
-       }
+        internal void stopTimerUpdate()
+        {
+            portfolioTimer.Stop();
+        }
+
+
+
+        internal async void AddPortfolio(Portfolio portfolio)
+        {
+           var _portfolio = portfolio as Portfolio;
+           await _repo.AddPortfolioAsync(_portfolio);
+           Portfolios.Add(_portfolio);
+           await ExecuteLoadPortfoliosCommand();
+        }
 
        internal async Task ExecuteLoadPortfoliosCommand()
         {
@@ -96,9 +98,10 @@ namespace Cryfolio.ViewModels
             }
         }
 
+
         internal async Task ExecuteLoadPortfolioCommand(int PortfolioID)
         {
-            //portfolioID = PortfolioID;
+            portfolioID = PortfolioID;
             string strtemp;
 
             if (IsBusy)
@@ -111,9 +114,13 @@ namespace Cryfolio.ViewModels
                 CoinsHodles.Clear();
                 CoinsHodlesViews.Clear();
                 var portfolio = await _repo.GetPortfolioAsync(PortfolioID.ToString());
-                foreach (var item in portfolio.coinsHodle)
+
+                if (portfolio != null)
                 {
-                    CoinsHodles.Add(item);
+                    foreach (var item in portfolio.coinsHodle)
+                    {
+                        CoinsHodles.Add(item);
+                    }
                 }
 
                 foreach (var item in CoinsHodles)
@@ -296,9 +303,9 @@ namespace Cryfolio.ViewModels
 
         private void Timer()
         {
-            aTimer.Elapsed += OnTimedEvent;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
+            portfolioTimer.Elapsed += OnTimedEvent;
+            portfolioTimer.AutoReset = true;
+            portfolioTimer.Enabled = true;
         }
 
         private async void OnTimedEvent(Object source, ElapsedEventArgs e)

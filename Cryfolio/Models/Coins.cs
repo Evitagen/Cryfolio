@@ -17,6 +17,7 @@ namespace Models.CoinMarketPortfolio
         public decimal PercentChange7day { get; set; }
         public string PercentChange7dayColor { get; set; }
         public int CoinMcapRank { get; set; }
+        public string ImageUrl { get; set; }
         public DateTime LastUpdated { get; set; }
 
     }

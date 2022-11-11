@@ -34,7 +34,7 @@ namespace Cryfolio.ViewModels
 
 
             UpdatePrices();
-            aTimer = new System.Timers.Timer(120000);  // every 120 seconds 2 min 
+            aTimer = new System.Timers.Timer(5000);  // 5 sec 
             Timer();
 
             _repo = CryptoRepository;
@@ -128,6 +128,8 @@ namespace Cryfolio.ViewModels
                     }
                 }
 
+
+                AllCoinsHodlesViews.Clear();
                 foreach (var item in AllCoinsHodles)
                 {
                     var cv = new AllCoinsHodleView();
@@ -208,7 +210,14 @@ namespace Cryfolio.ViewModels
         {
             UpdatePrices();
             await ExecuteLoadPortfoliosCommand();
+            AllCoinsHodles.Clear();
             ExecuteLoad_ALL_PortfolioCommand();
+        }
+
+
+        internal void stopTimerUpdate()
+        {
+            aTimer.Stop();
         }
     }
 }

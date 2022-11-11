@@ -9,8 +9,7 @@ namespace Cryfolio.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-
-        private static System.Timers.Timer aTimer;
+        public static System.Timers.Timer aTimer;
         public string Message { get; set; } = "default";
 
         bool PriceAccending = false;
@@ -23,14 +22,26 @@ namespace Cryfolio.ViewModels
         {
             UpdatePrices();
 
-            aTimer = new System.Timers.Timer(120000);  // every 120 seconds 2 min 
-            Timer();
+            if (aTimer == null)
+            {
+                aTimer = new System.Timers.Timer(5000);  // every 5 seconds
+                Timer();
+            }
+            else
+            {
+                aTimer.Start();
+            }
         }
 
         public void UpdatePrices()
         {
             var services = new CoinList();
             CoinmarketCap_Coins = services.GetCoinPrices().Result;
+        }
+
+        internal void stopCoinsUpdate()
+        {
+            aTimer.Stop();  
         }
 
         internal void SortByPrice()
@@ -73,7 +84,6 @@ namespace Cryfolio.ViewModels
                 CoinmarketCap_Coins = coinmarketCap_Coins.OrderByDescending(x => x.name).ToList();
                 NameAccending = true;
             }
-
         }
 
         internal void Sort24()
@@ -102,7 +112,6 @@ namespace Cryfolio.ViewModels
                 CoinmarketCap_Coins = coinmarketCap_Coins.OrderByDescending(x => x.PercentChange7day).ToList();
                 sevendayAccending = true;
             }
-
         }
 
         internal string GetName(int ID)
@@ -111,8 +120,6 @@ namespace Cryfolio.ViewModels
             return strName;
         }
 
-
-
         private List<Coins> coinmarketCap_Coins;
 
         public List<Coins> CoinmarketCap_Coins
@@ -120,7 +127,6 @@ namespace Cryfolio.ViewModels
             get { return coinmarketCap_Coins; }
             set { SetProperty(ref coinmarketCap_Coins, value); }
         }
-
 
         private void Timer()
         {

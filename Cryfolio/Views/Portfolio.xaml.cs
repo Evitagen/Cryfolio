@@ -84,6 +84,7 @@ namespace Cryfolio.Views
         {
             try
             {
+                viewModel.stopTimerUpdate();
                 Button button = (Button)sender;
                 var imt = (Grid)button.Parent;
                 var c1 = (Label)imt.Children[0];
@@ -104,6 +105,7 @@ namespace Cryfolio.Views
 
         private async void showAllPortfolio(object o, EventArgs e)
         {
+            viewModel.stopTimerUpdate();
             await Navigation.PushModalAsync(new All_Portfolio_Coins(viewModel_AllPortfolio));
         }
 
@@ -112,16 +114,19 @@ namespace Cryfolio.Views
 
         void MainPage(object sender, EventArgs e)
         {
+            viewModel.stopTimerUpdate();
             Navigation.PushModalAsync(new MainPage());
         }
 
         void Alerts(object sender, EventArgs e)
         {
+            viewModel.stopTimerUpdate();
             Navigation.PushModalAsync(new Alerts());
         }
 
         void Settings(object sender, EventArgs e)
         {
+            viewModel.stopTimerUpdate();
             Navigation.PushModalAsync(new Settings());
         }
 

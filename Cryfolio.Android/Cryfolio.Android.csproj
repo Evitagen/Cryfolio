@@ -89,559 +89,431 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable\abbccoin.png">
+    <AndroidResource Include="Resources\drawable\Aave.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\aelf.png">
+    <AndroidResource Include="Resources\drawable\Algorand.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\aeternity.png">
+    <AndroidResource Include="Resources\drawable\Ankr.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\aion.png">
+    <AndroidResource Include="Resources\drawable\Astar.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\algorand.png">
+    <AndroidResource Include="Resources\drawable\Audius.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ardor.png">
+    <AndroidResource Include="Resources\drawable\Balancer.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ark.png">
+    <AndroidResource Include="Resources\drawable\Bnb.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\augur.png">
+    <AndroidResource Include="Resources\drawable\Bitcoin.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\aurora.png">
+    <AndroidResource Include="Resources\drawable\Bitdao_sld.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\basicattentiontoken.png">
+    <AndroidResource Include="Resources\drawable\Bittorrent.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\beam.png">
+    <AndroidResource Include="Resources\drawable\Blockstack.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\binancecoin.png">
+    <AndroidResource Include="Resources\drawable\Cardano.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bitcapitalvendor.png">
+    <AndroidResource Include="Resources\drawable\Cdai.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bitcoin.png">
+    <AndroidResource Include="Resources\drawable\Ceek.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bitcoincash.png">
+    <AndroidResource Include="Resources\drawable\Celo.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\BitcoinDiamond.png">
+    <AndroidResource Include="Resources\drawable\Chainlink.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bitcoingold.png">
+    <AndroidResource Include="Resources\drawable\Chia.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bitcoinsv.png">
+    <AndroidResource Include="Resources\drawable\Chiliz.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bitshares.png">
+    <AndroidResource Include="Resources\drawable\Coinmetro.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bittorrent.png">
+    <AndroidResource Include="Resources\drawable\Cosmos.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bread.png">
+    <AndroidResource Include="Resources\drawable\Dai.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bytecoin.png">
+    <AndroidResource Include="Resources\drawable\Dash.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bytom.png">
+    <AndroidResource Include="Resources\drawable\Decentraland.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\cardano.png">
+    <AndroidResource Include="Resources\drawable\Decred.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\centrality.png">
+    <AndroidResource Include="Resources\drawable\Defichain.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\chainlink.png">
+    <AndroidResource Include="Resources\drawable\Digibyte.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\chiliz.png">
+    <AndroidResource Include="Resources\drawable\Dogecoin.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\civic.png">
+    <AndroidResource Include="Resources\drawable\Ecash.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\cosmos.png">
+    <AndroidResource Include="Resources\drawable\Ecomi.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\crypterium.png">
+    <AndroidResource Include="Resources\drawable\Enjincoin.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\cryptocomcoin.png">
+    <AndroidResource Include="Resources\drawable\Eos.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\dai.png">
+    <AndroidResource Include="Resources\drawable\Ergo.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\dash.png">
+    <AndroidResource Include="Resources\drawable\Ethereum.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\decentraland.png">
+    <AndroidResource Include="Resources\drawable\Ethos.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\decred.png">
+    <AndroidResource Include="Resources\drawable\Evmos.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\digibyte.png">
+    <AndroidResource Include="Resources\drawable\Fantom.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\digitexfutures.png">
+    <AndroidResource Include="Resources\drawable\Filecoin.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\digixdao.png">
+    <AndroidResource Include="Resources\drawable\Flow.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\dogecoin.png">
+    <AndroidResource Include="Resources\drawable\Frax.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\dragoncoins.png">
+    <AndroidResource Include="Resources\drawable\Gala.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\educare.png">
+    <AndroidResource Include="Resources\drawable\Gmx.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\elastos.png">
+    <AndroidResource Include="Resources\drawable\Gnosis.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\electroneum.png">
+    <AndroidResource Include="Resources\drawable\Golem.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\Energi.png">
+    <AndroidResource Include="Resources\drawable\Harmony.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\EnjinCoin.png">
+    <AndroidResource Include="Resources\drawable\Havven.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\eos.png">
+    <AndroidResource Include="Resources\drawable\Helium.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ethereum.png">
+    <AndroidResource Include="Resources\drawable\Hive.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ethereumclassic.png">
+    <AndroidResource Include="Resources\drawable\Holotoken.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\factom.png">
+    <AndroidResource Include="Resources\drawable\Icon.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\fantom.png">
+    <AndroidResource Include="Resources\drawable\Iostoken.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ftxtoken.png">
+    <AndroidResource Include="Resources\drawable\Iota.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\golem.png">
+    <AndroidResource Include="Resources\drawable\Iotex.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\grin.png">
+    <AndroidResource Include="Resources\drawable\Link.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\gxchain.png">
+    <AndroidResource Include="Resources\drawable\Lisk.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\hederahashgraph.png">
+    <AndroidResource Include="Resources\drawable\Litecoin.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\hedgetrade.png">
+    <AndroidResource Include="Resources\drawable\Livepeer.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\holo.png">
+    <AndroidResource Include="Resources\drawable\Looksrare.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\horizen.png">
+    <AndroidResource Include="Resources\drawable\Loopring.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\huobitoken.png">
+    <AndroidResource Include="Resources\drawable\Maker.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\hypercash.png">
+    <AndroidResource Include="Resources\drawable\Monero.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\icon.png">
+    <AndroidResource Include="Resources\drawable\Moonbeam.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\iExecRLC.png">
+    <AndroidResource Include="Resources\drawable\Msol.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ignis.png">
+    <AndroidResource Include="Resources\drawable\Mxc.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\iost.png">
+    <AndroidResource Include="Resources\drawable\Near.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\iota.png">
+    <AndroidResource Include="Resources\drawable\Nem.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\Komodo.png">
+    <AndroidResource Include="Resources\drawable\Neo.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\kucoinshares.png">
+    <AndroidResource Include="Resources\drawable\Neutrino.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\kybernetwork.png">
+    <AndroidResource Include="Resources\drawable\Nexo.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\lambda.png">
+    <AndroidResource Include="Resources\drawable\Okb.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\lisk.png">
+    <AndroidResource Include="Resources\drawable\Olympus.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\litecoin.png">
+    <AndroidResource Include="Resources\drawable\Ontology.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\loopring.png">
+    <AndroidResource Include="Resources\drawable\Optimism.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\luna.png">
+    <AndroidResource Include="Resources\drawable\Osmosis.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\maidsafecoin.png">
+    <AndroidResource Include="Resources\drawable\Playdapp.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\maker.png">
+    <AndroidResource Include="Resources\drawable\Polkadot.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\maticnetwork.png">
+    <AndroidResource Include="Resources\drawable\Polymath.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\mco.png">
+    <AndroidResource Include="Resources\drawable\Qtum.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\metaverseetp.png">
+    <AndroidResource Include="Resources\drawable\Radix.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\molecularfuture.png">
+    <AndroidResource Include="Resources\drawable\Ravencoin.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\monacoin.png">
+    <AndroidResource Include="Resources\drawable\Ripple.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\monero.png">
+    <AndroidResource Include="Resources\drawable\Safemoon.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\nano.png">
+    <AndroidResource Include="Resources\drawable\Secret.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\nashexchange.png">
+    <AndroidResource Include="Resources\drawable\Serum.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\nebulas.png">
+    <AndroidResource Include="Resources\drawable\Siacoin.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\nem.png">
+    <AndroidResource Include="Resources\drawable\Skale.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\neo.png">
+    <AndroidResource Include="Resources\drawable\Solana.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\newton.png">
+    <AndroidResource Include="Resources\drawable\Songbird.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\nexo.png">
+    <AndroidResource Include="Resources\drawable\Stellar.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\nulls.png">
+    <AndroidResource Include="Resources\drawable\Stepn.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\odem.png">
+    <AndroidResource Include="Resources\drawable\Sushi.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\omisego.png">
+    <AndroidResource Include="Resources\drawable\Swipe.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ontology.png">
+    <AndroidResource Include="Resources\drawable\Swissborg.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\paxosstandard.png">
+    <AndroidResource Include="Resources\drawable\Tenset.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\populous.png">
+    <AndroidResource Include="Resources\drawable\Terrausd.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\projectpai.png">
+    <AndroidResource Include="Resources\drawable\Tether.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\PundiX.png">
+    <AndroidResource Include="Resources\drawable\Tezos.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\qtum.png">
+    <AndroidResource Include="Resources\drawable\Thorchain.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\Quant.png">
+    <AndroidResource Include="Resources\drawable\Tron.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ravencoin.png">
+    <AndroidResource Include="Resources\drawable\Uma.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\reddcoin.png">
+    <AndroidResource Include="Resources\drawable\Uniswap.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ren.png">
+    <AndroidResource Include="Resources\drawable\Vechain.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\revain.png">
+    <AndroidResource Include="Resources\drawable\Waves.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\riftoken.png">
+    <AndroidResource Include="Resources\drawable\Wax.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\seele.png">
+    <AndroidResource Include="Resources\drawable\Zcash.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\siacoin.png">
+    <AndroidResource Include="Resources\drawable\Zelcash.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\solve.png">
+    <AndroidResource Include="Resources\drawable\Zencash.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\stasiseuro.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\statiseuro.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\status.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\steem.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\stellar.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\stratis.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\swipe.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\synthetixnetworktoken.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\tether.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\tezos.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\theta.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\thundertoken.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\tierion.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\tron.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\truechain.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\trueusd.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\unussedleo.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\usdcoin.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\vechain.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\verge.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\vsystems.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\waltonchain.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\waves.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\waykichain.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\wink.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\xmax.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\youcoin.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\zb.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\zcash.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\zcoin.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\zilliqa.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\xrp.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ripple.png">
+    <AndroidResource Include="Resources\drawable\Zilliqa.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
