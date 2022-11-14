@@ -25,7 +25,7 @@ namespace Cryfolio.Services
             var coins = JsonConvert.DeserializeObject<List<Coins>>(response.ToString());
             var coinsFormated = new List<Coins>();
             string strtemp;
-            string strtemp2;
+            //string strtemp2;
 
 
               foreach (var coin in coins)
@@ -51,13 +51,17 @@ namespace Cryfolio.Services
                     }
 
 
-                strtemp2 = coin.ImageUrl;
+                //strtemp2 = coin.ImageUrl;
 
 
-            //strtemp = coin.name.Replace("-", "");                                    // removes the dash as xamarin wont allow
-            strtemp = coin.name;
+                //strtemp = coin.name.Replace("-", "");                                    // removes the dash as xamarin wont allow
+                //strtemp = coin.name;
+                //strtemp = coin.coinID;
+                strtemp = coin.coinID.Replace("-", "");
 
-                    coin.imagelocation = strtemp + ".png";
+                strtemp = strtemp.Substring(0, 1).ToUpper() + strtemp.Substring(1);
+
+                coin.imagelocation = strtemp + ".png";
 
                     ///
                     /// Changing Color of percent changed text to red/green

@@ -3,7 +3,7 @@ namespace Models.CoinMarketPortfolio
 {
     public class Coins
     {
-
+        public string coinID { get; set; }
         public string name { get; set; }
         public double price { get; set; }
         public double volume { get; set; }
